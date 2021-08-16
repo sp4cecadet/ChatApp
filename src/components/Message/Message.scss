@@ -1,0 +1,96 @@
+@import "~styles/variables";
+
+.message {
+  $self: &;
+  display: flex;
+  max-width: 440px;
+  margin-bottom: 25px;
+  &__avatar {
+    display: flex;
+    flex-direction: column-reverse;
+    img {
+      border-radius: 50px;
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 15px;
+    }
+  }
+  &__bubble {
+    background: $blue;
+    box-shadow: 0px 5px 5px rgba(54, 166, 255, 0.2);
+    border-radius: 12px 12px 12px 0px;
+    padding: 15px;
+    margin-bottom: 5px;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__attachments {
+    display: flex;
+    margin-bottom: 5px;
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+      }
+    }
+
+    &-item:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  &__text {
+    color: #ffffff;
+    line-height: 20px;
+  }
+
+  &--mine {
+    display: flex;
+    flex-direction: row-reverse;
+
+    #{$self}__content {
+      margin-bottom: 15px;
+      flex-direction: row-reverse;
+    }
+
+    #{$self}__avatar {
+      margin-bottom: 15px;
+      img {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+
+    #{$self}__info {
+      text-align: right;
+    }
+
+    #{$self}__bubble {
+      background: #ffffff;
+      border: 1px solid #ececec;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.22);
+      border-radius: 12px 12px 0px 12px;
+    }
+
+    #{$self}__text {
+      color: $black;
+    }
+  }
+  &__status__icon {
+    position: absolute;
+    bottom: 2px;
+    left: -15px;
+  }
+}
