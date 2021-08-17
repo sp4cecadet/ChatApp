@@ -1,5 +1,5 @@
 import React from "react";
-import * as cn from "classnames";
+import cn from "classnames";
 import "./Block.scss";
 
 const Block = ({ children, className }) => {

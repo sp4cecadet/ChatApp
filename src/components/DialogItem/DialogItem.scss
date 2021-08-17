@@ -1,0 +1,92 @@
+@import "~styles/variables";
+
+.dialogs {
+  width: 300px;
+  margin-bottom: 20px;
+  &__item {
+    display: flex;
+    $item: &;
+    &-avatar {
+      position: relative;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    &--online {
+      #{$item}-avatar {
+        &::before {
+          display: block;
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          content: "";
+          background-color: $green;
+          border-radius: 30px;
+          width: 13px;
+          height: 13px;
+          border: 3px solid #ffffff;
+        }
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      &-top {
+        display: flex;
+        b {
+          font-weight: bold;
+          font-size: 14px;
+          flex: 1;
+          margin-bottom: 8px;
+        }
+        span {
+          opacity: 0.5;
+        }
+      }
+      &-bottom {
+        position: relative;
+        p {
+          opacity: 0.5;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 200px;
+          height: 1.2em;
+          white-space: nowrap;
+        }
+        &-count {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          background: #f4686b;
+          color: #ffffff;
+          font-weight: bold;
+
+          min-width: 18px;
+          min-width: 25px;
+          height: 18px;
+          font-size: 11px;
+          border-radius: 30px;
+          text-align: center;
+          line-height: 17px;
+          box-shadow: 0 0 0 3px #ffffff;
+        }
+        .message__status__icon {
+          bottom: 5px;
+          left: auto;
+          right: 0;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
