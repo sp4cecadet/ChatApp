@@ -8,6 +8,8 @@ import {
 } from "@ant-design/icons";
 import { Button, Block } from "components";
 import { Link } from "react-router-dom";
+import { validateField } from "utils/helpers/";
+
 const success = false;
 
 const RegisterForm = (props) => {
@@ -42,16 +44,13 @@ const RegisterForm = (props) => {
           </div>
         ) : (
           <Form
-            name="normal_login"
+            onSubmit={handleSubmit}
             className="login-form"
             initialValues={{ remember: true }}
-            onSubmit={handleSubmit}
           >
             <Form.Item
               hasFeedback
-              validateStatus={
-                !touched.email ? "" : errors.email ? "error" : "success"
-              }
+              validateStatus={validateField("email", touched, errors)}
               help={errors.email}
             >
               <Input
@@ -67,18 +66,20 @@ const RegisterForm = (props) => {
             </Form.Item>
             <Form.Item>
               <Input
+                id="fullname"
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 size="large"
                 type="text"
+                value={values.fullname}
                 placeholder="Ваше имя"
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Form.Item>
 
             <Form.Item
               hasFeedback
-              validateStatus={
-                !touched.password ? "" : errors.password ? "error" : "success"
-              }
+              validateStatus={validateField("password", touched, errors)}
               help={errors.password}
             >
               <Input
@@ -95,9 +96,13 @@ const RegisterForm = (props) => {
 
             <Form.Item>
               <Input
+                id="password2"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 size="large"
                 type="password"
+                value={values.password2}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Повторите пароль"
               />
             </Form.Item>
