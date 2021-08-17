@@ -16,47 +16,68 @@ const Message = ({
   date,
   isMine,
   isReaded,
+  isTyping,
   attachments,
 }) => {
   return (
-    <div className={cn("message", { "message--mine": isMine })}>
+    <div
+      className={cn("message", {
+        "message--mine": isMine,
+        "message--is-typing": isTyping,
+        "message--image": attachments && attachments.length === 1,
+      })}
+    >
       <div className="message__avatar">
         <img src={avatar} alt={`Avatar ${user.fullname}`} />
       </div>
       <div>
         <div className="message__content">
-          {isMine &&
-            (isReaded ? (
-              <img
-                className="message__status__icon"
-                src={ReadedSvg}
-                alt="Message readed"
-              />
-            ) : (
-              <img
-                className="message__status__icon"
-                src={SentSvg}
-                alt="Message sent"
-              />
-            ))}
           <div className="message__info">
-            <div className="message__bubble">
-              <p className="message__text">{text}</p>
-            </div>
+            {!text && !isTyping ? (
+              <></>
+            ) : (
+              <div className="message__bubble">
+                {text && <p className="message__text">{text}</p>}
+                {isTyping && (
+                  <div className="message__typing">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                )}
+              </div>
+            )}
             <div className="message__attachments">
               {attachments &&
                 attachments.map((item) => (
-                  <div key={Date.now()} className="message__attachments-item">
+                  <div className="message__attachments-item">
                     <img src={item.url} alt={item.filename} />
                   </div>
                 ))}
             </div>
-            <span className="message__date">
-              {formatDistanceToNow(new Date(date), {
-                addSuffix: true,
-                locale: ruLocale,
-              })}
-            </span>
+            {date && (
+              <span className="message__date">
+                {isMine &&
+                  (isReaded ? (
+                    <img
+                      className="message__status__icon"
+                      src={ReadedSvg}
+                      alt="Message readed"
+                    />
+                  ) : (
+                    <img
+                      className="message__status__icon"
+                      src={SentSvg}
+                      alt="Message sent"
+                    />
+                  ))}
+                {date &&
+                  formatDistanceToNow(new Date(date), {
+                    addSuffix: true,
+                    locale: ruLocale,
+                  })}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -74,6 +95,7 @@ Message.propTypes = {
   date: PropTypes.string,
   user: PropTypes.object,
   attachments: PropTypes.array,
+  isTyping: PropTypes.bool,
 };
 
 export default Message;
