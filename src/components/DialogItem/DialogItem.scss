@@ -1,10 +1,11 @@
 @import "~styles/variables";
 
 .dialogs {
-  width: 300px;
   margin-bottom: 20px;
   &__item {
     display: flex;
+    width: 300px;
+
     $item: &;
     &-avatar {
       position: relative;

@@ -1,34 +1,56 @@
 import React from "react";
-import { Message, DialogItem } from "../../components";
+import { Contacts, Message } from "components";
 
 import "./Home.scss";
 
 const Home = () => {
   return (
     <section className="home">
-      <div className="dialogs">
-        <DialogItem
-          user={{ fullname: "Гжегож Бженчишчикевич", isOnline: true }}
-          unreaded={7}
-        />
-      </div>
-      {/* <Contacts
+      <Contacts
         items={[
           {
+            _id: Math.random(),
+            text: `Блажен, кто с молоду был молод,
+			  Блажен, кто во-время созрел,
+			  Кто постепенно жизни холод
+			  С летами вытерпеть умел;
+			  Кто странным снам не предавался,
+			  Кто черни светской не чуждался,
+			  Кто в двадцать лет был франт иль хват,
+			  А в тридцать выгодно женат;
+			  Кто в пятьдесят освободился
+			  От частных и других долгов,
+			  Кто славы, денег и чинов
+			  Спокойно в очередь добился,
+			  О ком твердили целый век:
+			  N. N. прекрасный человек.`,
+            isReaded: false,
+            sent_at: new Date(),
+            unreaded: 0,
             user: {
-              fullname: "Гжегож Бженчишчикевич",
-              avatar: null,
+              _id: 1,
+              fullname: "Александр Пушкин",
+              avatar:
+                "https://globalmsk.ru/usr/person/big-person-15629077401.jpg",
+              isOnline: true,
             },
-            message: {
-              text: `Weszła bardzo ostrożnie, cicho, stąpając bezszelestnie, płynąc przez komnatę jak widmo,
-			jak zjawa, a jedyny dźwięk, jaki towarzyszył jej ruchom, wydawała opończa, ocierająca się o nagą
-			skórę`,
-              isReaded: false,
-              sent_at: new Date(),
+          },
+
+          {
+            _id: Math.random(),
+            text: `Ну типа привет`,
+            isReaded: false,
+            sent_at: new Date() - 10000,
+            unreaded: 5,
+            user: {
+              _id: 3,
+              fullname: "Энгель Югенс",
+              avatar: "",
+              isOnline: false,
             },
           },
         ]}
-      /> */}
+      />
       {/* <Message
         avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
         text="Fucking moron, screw you!"
