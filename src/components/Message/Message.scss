@@ -57,6 +57,52 @@
     line-height: 20px;
   }
 
+  &--audio {
+    audio {
+      display: none;
+    }
+    #{$self}__bubble {
+      position: relative;
+      width: 250px;
+      overflow: hidden;
+    }
+    #{$self}__audio {
+      &-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &-btn {
+        button {
+          cursor: pointer;
+          border: 0;
+          width: 28px;
+          height: 28px;
+          border-radius: 30px;
+          background: #0f3997;
+          img {
+            height: 13px;
+          }
+        }
+      }
+      &-duration {
+        color: #ffffff;
+        font-weight: 500;
+        opacity: 0.5;
+        font-size: 12px;
+      }
+      &-progress {
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background-color: #418fff;
+        transition: width 100ms ease;
+      }
+    }
+  }
+
   &--mine {
     display: flex;
     flex-direction: row-reverse;

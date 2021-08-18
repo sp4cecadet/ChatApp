@@ -22,7 +22,7 @@ const getAvatar = (avatar) => {
   }
 };
 
-const DialogItem = ({ user, message, unreaded, isMine }) => {
+const DialogItem = ({ user, message, isMine }) => {
   return (
     <div
       className={cn("dialogs__item", {
@@ -38,9 +38,9 @@ const DialogItem = ({ user, message, unreaded, isMine }) => {
         <div className="dialogs__item-info-bottom">
           <p>{message.text}</p>
 
-          {unreaded > 0 ? (
+          {user.unreaded > 0 ? (
             <div className="dialogs__item-info-bottom-count">
-              {unreaded > 9 ? "9+" : unreaded}
+              {user.unreaded > 9 ? "9+" : user.unreaded}
             </div>
           ) : (
             isMine && <IconReaded isMine={isMine} isReaded={message.isReaded} />

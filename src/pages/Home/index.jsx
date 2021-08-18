@@ -10,7 +10,8 @@ const Home = () => {
         items={[
           {
             _id: Math.random(),
-            text: `Блажен, кто с молоду был молод,
+            message: {
+              text: `Блажен, кто с молоду был молод,
 			  Блажен, кто во-время созрел,
 			  Кто постепенно жизни холод
 			  С летами вытерпеть умел;
@@ -24,12 +25,13 @@ const Home = () => {
 			  Спокойно в очередь добился,
 			  О ком твердили целый век:
 			  N. N. прекрасный человек.`,
-            isReaded: false,
-            sent_at: new Date(),
-            unreaded: 0,
+              isReaded: false,
+              sent_at: new Date(),
+            },
             user: {
-              _id: 1,
+              _id: 2,
               fullname: "Александр Пушкин",
+              unreaded: 1,
               avatar:
                 "https://globalmsk.ru/usr/person/big-person-15629077401.jpg",
               isOnline: true,
@@ -38,38 +40,29 @@ const Home = () => {
 
           {
             _id: Math.random(),
-            text: `Ну типа привет`,
-            isReaded: false,
-            sent_at: new Date() - 10000,
-            unreaded: 5,
+            message: {
+              text: `Ну типа привет`,
+              isReaded: true,
+              sent_at: new Date() - 10000,
+            },
             user: {
-              _id: 3,
+              _id: 1,
+              unreaded: 0,
               fullname: "Энгель Югенс",
-              avatar: "",
+              avatar:
+                "https://coub-anubis-a.akamaized.net/coub_storage/coub/simple/cw_timeline_pic/5501a2667ce/52bbe0d28be52b79e8909/ios_large_1583071943_image.jpg",
               isOnline: false,
             },
           },
         ]}
       />
-      {/* <Message
-        avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
-        text="Fucking moron, screw you!"
-        date={"Mon Aug 02 2021 12:55:10"}
-        attachments={[
-          {
-            filename: "image.jpg",
-            url: "https://source.unsplash.com/100x100/?random=1",
-          },
-          {
-            filename: "image.jpg",
-            url: "https://source.unsplash.com/100x100/?random=2",
-          },
-          {
-            filename: "image.jpg",
-            url: "https://source.unsplash.com/100x100/?random=3",
-          },
-        ]}
-      />
+      {
+        <Message
+          avatar="https://upload.wikimedia.org/wikipedia/ru/3/39/R2-D2_Droid.png"
+          date="Mon Aug 02 2021 12:55:10"
+          audio="https://zvukipro.com/uploads/files/2020-12/1608570485_36608-krik.mp3"
+        />
+        /*
       <Message
         avatar="https://vk.com/images/deactivated_100.png"
         text="Who are you?"
@@ -89,7 +82,8 @@ const Home = () => {
             url: "https://source.unsplash.com/150x150/?random=4",
           },
         ]}
-      /> */}
+      /> */
+      }
     </section>
   );
 };
