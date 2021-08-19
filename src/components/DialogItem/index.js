@@ -4,21 +4,13 @@ import cn from "classnames";
 import { format, isToday } from "date-fns";
 
 import "./DialogItem.scss";
-import { IconReaded } from "components/";
+import { IconReaded, Avatar } from "components/";
 
 const getMessageDate = (sent_at) => {
   if (isToday(sent_at)) {
     return format(sent_at, "HH:mm");
   } else {
     return format(sent_at, "dd/MM/yyyy");
-  }
-};
-
-const getAvatar = (avatar) => {
-  if (avatar) {
-    return <img src={avatar} alt=""></img>;
-  } else {
-    // generate avatar
   }
 };
 
@@ -29,7 +21,9 @@ const DialogItem = ({ user, message, isMine }) => {
         "dialogs__item--online": user.isOnline,
       })}
     >
-      <div className="dialogs__item-avatar">{getAvatar(user.avatar)}</div>
+      <div className="dialogs__item-avatar">
+        <Avatar user={user} />
+      </div>
       <div className="dialogs__item-info">
         <div className="dialogs__item-info-top">
           <b>{user.fullname}</b>

@@ -1,0 +1,13 @@
+.avatar {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+
+  &--gradient {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 38px;
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Contacts, Message } from "components";
 
 import "./Home.scss";
@@ -9,7 +10,7 @@ const Home = () => {
       <Contacts
         items={[
           {
-            _id: Math.random(),
+            _id: "Math.random()",
             message: {
               text: `Блажен, кто с молоду был молод,
 			  Блажен, кто во-время созрел,
@@ -29,7 +30,7 @@ const Home = () => {
               sent_at: new Date(),
             },
             user: {
-              _id: 2,
+              _id: "asd6g13hh8g10",
               fullname: "Александр Пушкин",
               unreaded: 1,
               avatar:
@@ -46,11 +47,9 @@ const Home = () => {
               sent_at: new Date() - 10000,
             },
             user: {
-              _id: 1,
+              _id: "n8cxas8",
               unreaded: 0,
-              fullname: "Энгель Югенс",
-              avatar:
-                "https://coub-anubis-a.akamaized.net/coub_storage/coub/simple/cw_timeline_pic/5501a2667ce/52bbe0d28be52b79e8909/ios_large_1583071943_image.jpg",
+              fullname: "Фьюри",
               isOnline: false,
             },
           },
@@ -58,7 +57,7 @@ const Home = () => {
       />
       {
         <Message
-          avatar="https://upload.wikimedia.org/wikipedia/ru/3/39/R2-D2_Droid.png"
+          avatar="https://cdn.icon-icons.com/icons2/193/PNG/256/R2D2_-_02_23245.png"
           date="Mon Aug 02 2021 12:55:10"
           audio="https://zvukipro.com/uploads/files/2020-12/1608570485_36608-krik.mp3"
         />
