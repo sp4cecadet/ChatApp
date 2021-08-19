@@ -1,10 +1,17 @@
 @import "~styles/variables";
 
 .dialogs {
-  margin-bottom: 20px;
   &__item {
+    cursor: pointer;
     display: flex;
     width: 300px;
+    padding: 0 20px 0 0;
+    margin-bottom: 20px;
+
+    &:active,
+    &:hover {
+      background-color: #f3f7ff;
+    }
 
     $item: &;
     &-avatar {

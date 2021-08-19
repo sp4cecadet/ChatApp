@@ -7,10 +7,11 @@ import "./DialogItem.scss";
 import { IconReaded, Avatar } from "components/";
 
 const getMessageDate = (sent_at) => {
-  if (isToday(sent_at)) {
-    return format(sent_at, "HH:mm");
+  const date = new Date(sent_at);
+  if (isToday(date)) {
+    return format(date, "HH:mm");
   } else {
-    return format(sent_at, "dd/MM/yyyy");
+    return format(date, "dd/MM/yyyy");
   }
 };
 

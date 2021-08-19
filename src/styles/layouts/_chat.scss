@@ -1,0 +1,75 @@
+.chat {
+  height: 100%;
+  display: flex;
+  background-color: #ffffff;
+  width: 1140px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.04);
+
+  &__contacts {
+    width: 320px;
+    border-right: 1px solid #f7f7f7;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+
+      & > div {
+        span {
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+    &-search {
+      padding: 0 20px 20px 20px;
+
+      .ant-input {
+        background-color: #f7f8f9;
+        height: 32px;
+        padding: 4px 11px 6px;
+      }
+    }
+    &-list {
+      .contacts {
+        padding: 0 0 0 20px;
+      }
+    }
+  }
+
+  &__dialog {
+    flex: 1;
+    overflow-y: auto;
+    &-header {
+      z-index: 9999;
+      top: 0;
+      position: sticky;
+
+      background-color: #ffffff;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 20px;
+      border-bottom: 1px solid #f7f7f7;
+
+      &--centered {
+        text-align: center;
+      }
+
+      &-username {
+        font-weight: bold;
+
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+
+    &-messages {
+      padding: 30px;
+    }
+  }
+}

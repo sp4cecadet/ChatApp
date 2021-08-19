@@ -111,7 +111,10 @@ const Message = ({
             {attachments && (
               <div className="message__attachments">
                 {attachments.map((item) => (
-                  <div className="message__attachments-item">
+                  <div
+                    key={item.filename}
+                    className="message__attachments-item"
+                  >
                     <img src={item.url} alt={item.filename} />
                   </div>
                 ))}
