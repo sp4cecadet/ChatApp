@@ -1,0 +1,47 @@
+.chat-input {
+  background-color: #ffffff;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 806px;
+  padding: 20px;
+
+  &__smile-btn {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+
+    span.anticon:hover {
+      opacity: 1;
+    }
+  }
+
+  span.anticon {
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 20px;
+  }
+
+  span.anticon:hover {
+    opacity: 1;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    width: 70px;
+    justify-content: space-between;
+    margin-left: 15px;
+
+    span.anticon-send {
+      font-size: 26px;
+    }
+  }
+
+  input {
+    position: relative;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

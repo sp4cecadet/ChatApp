@@ -54,7 +54,7 @@ const AudioMessage = ({ audio }) => {
       ></div>
       <div className="message__audio-info">
         <div className="message__audio-btn">
-          <button onClick={togglePlay}>
+          <button onClick={togglePlay} tabIndex="-1">
             <img src={isPlaying ? pauseSvg : playSvg} alt="Play-Pause button" />
           </button>
         </div>

@@ -5,10 +5,11 @@ import {
   FormOutlined,
   EllipsisOutlined,
 } from "@ant-design/icons";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 
 import "./Home.scss";
 import Status from "../../components/Status";
+import ChatInput from "../../components/ChatInput";
 
 const Home = () => {
   return (
@@ -20,7 +21,7 @@ const Home = () => {
               <TeamOutlined />
               <span>Список диалогов</span>
             </div>
-            <FormOutlined />
+            <Button type="ghost" shape="circle" icon={<FormOutlined />} />
           </div>
           <div className="chat__contacts-search">
             <Input.Search placeholder="Поиск среди контактов" />
@@ -28,6 +29,470 @@ const Home = () => {
           <div className="chat__contacts-list">
             <Contacts
               items={[
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
+                {
+                  _id: "611e6a38f66cf6bde2ac6f0b",
+                  message: {
+                    text: "Sunt consectetur adipisicing pariatur amet. Mollit laborum veniam labore elit do dolor ut. Mollit amet voluptate consequat duis veniam elit et.",
+                    isReaded: false,
+                    sent_at:
+                      "Wed Sep 24 2003 09:38:38 GMT+0400 (Москва, летнее время)",
+                  },
+                  user: {
+                    _id: "mtem",
+                    fullname: "Pratt Obrien",
+                    unreaded: 3,
+                    avatar: null,
+                    isOnline: true,
+                  },
+                },
                 {
                   _id: "611e6a38f66cf6bde2ac6f0b",
                   message: {
@@ -211,6 +676,76 @@ const Home = () => {
               isMine={true}
               isReaded={true}
             />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
+            <Message
+              avatar="https://vk.com/images/deactivated_100.png"
+              text="Who are you?"
+              date={"Mon Aug 11 2021 18:55:10"}
+              isMine={true}
+              isReaded={true}
+            />
 
             <Message
               avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
@@ -229,6 +764,77 @@ const Home = () => {
                 },
               ]}
             />
+            <Message
+              avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
+              attachments={[
+                {
+                  filename: "image1.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=1",
+                },
+                {
+                  filename: "image2.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=2",
+                },
+                {
+                  filename: "image3.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=3",
+                },
+              ]}
+            />
+            <Message
+              avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
+              attachments={[
+                {
+                  filename: "image1.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=1",
+                },
+                {
+                  filename: "image2.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=2",
+                },
+                {
+                  filename: "image3.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=3",
+                },
+              ]}
+            />
+            <Message
+              avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
+              attachments={[
+                {
+                  filename: "image1.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=1",
+                },
+                {
+                  filename: "image2.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=2",
+                },
+                {
+                  filename: "image3.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=3",
+                },
+              ]}
+            />
+            <Message
+              avatar="https://sun1.48276.userapi.com/s/v1/if2/vxcZ6TgfySSrYYBrc96klRvVf0xx6TEVu--76Zg10Xje_r3TSX8HPJ16huBP2lYCgRBwqeB3inDP559qu5kA4zA9.jpg?size=100x100&quality=96&crop=29,64,550,550&ava=1"
+              attachments={[
+                {
+                  filename: "image1.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=1",
+                },
+                {
+                  filename: "image2.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=2",
+                },
+                {
+                  filename: "image3.jpg",
+                  url: "https://source.unsplash.com/150x150/?random=3",
+                },
+              ]}
+            />
+          </div>
+          <div className="chat__dialog-input">
+            <ChatInput />
           </div>
         </div>
       </div>

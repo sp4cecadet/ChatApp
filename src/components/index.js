@@ -7,3 +7,4 @@ export { default as IconReaded } from "./IconReaded";
 export { default as Contacts } from "./Contacts";
 export { default as Avatar } from "./Avatar";
 export { default as Status } from "./Status";
+export { default as ChatInput } from "./ChatInput";
