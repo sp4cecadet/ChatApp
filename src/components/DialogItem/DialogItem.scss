@@ -4,13 +4,15 @@
   &__item {
     cursor: pointer;
     display: flex;
-    width: 300px;
-    margin-bottom: 20px;
-    padding: 0px 0px 0px 20px;
 
-    &:active,
-    &:hover {
-      background-color: #f3f7ff;
+    padding: 20px;
+
+    margin: 0 0 0 20px;
+
+    &--selected,
+    &--selected:hover {
+      background-color: #4280ff;
+      color: #ffffff;
     }
 
     $item: &;
@@ -67,7 +69,7 @@
           opacity: 0.5;
           text-overflow: ellipsis;
           overflow: hidden;
-          width: 200px;
+          width: 165px;
           height: 1.2em;
           white-space: nowrap;
         }
@@ -86,7 +88,6 @@
           border-radius: 30px;
           text-align: center;
           line-height: 17px;
-          box-shadow: 0 0 0 3px #ffffff;
         }
         .message__status__icon {
           bottom: 5px;

@@ -8,15 +8,33 @@ import {
   SendOutlined,
 } from "@ant-design/icons";
 
+import { UploadField } from "@navjobs/upload";
+import { Picker } from "emoji-mart";
+
 import "./ChatInput.scss";
 
 const ChatInput = () => {
   const [text, setText] = useState("");
+  const [emojiPickerVisible, setEmojiPickerVisible] = useState(false);
+
+  const toggleEmojiPicker = () => {
+    setEmojiPickerVisible(!emojiPickerVisible);
+  };
 
   return (
     <div className="chat-input">
       <div className="chat-input__smile-btn">
-        <Button type="ghost" shape="circle" icon={<SmileOutlined />} />
+        {emojiPickerVisible && (
+          <div className="chat-input__emoji-picker">
+            <Picker set="apple" />
+          </div>
+        )}
+        <Button
+          onClick={toggleEmojiPicker}
+          type="ghost"
+          shape="circle"
+          icon={<SmileOutlined />}
+        />
       </div>
       <Input
         size="large"
@@ -25,7 +43,19 @@ const ChatInput = () => {
         onChange={(e) => setText(e.target.value)}
       />
       <div className="chat-input__actions">
-        <Button type="ghost" shape="circle" icon={<CameraOutlined />} />
+        <UploadField
+          onFiles={(files) => console.log(files)}
+          containerProps={{
+            className: "chat-input__actions-upload-btn",
+          }}
+          uploadProps={{
+            accept: ".jpg,.jpeg,.gif,.png,.bmp",
+            multiple: true,
+          }}
+        >
+          <Button type="ghost" shape="circle" icon={<CameraOutlined />} />
+        </UploadField>
+
         <Button
           type="ghost"
           shape="circle"

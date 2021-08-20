@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { Emoji } from "emoji-mart";
 
-import { Time, IconReaded } from "components/";
+import { Time, IconReaded, Avatar } from "components/";
 import waveSvg from "assets/img/wave.svg";
 import playSvg from "assets/img/play.svg";
 import pauseSvg from "assets/img/pause.svg";
@@ -69,65 +70,54 @@ const AudioMessage = ({ audio }) => {
   );
 };
 
-const Message = ({
-  avatar,
-  user,
-  text,
-  date,
-  audio,
-  isMine,
-  isReaded,
-  isTyping,
-  attachments,
-}) => {
+const Message = ({ user, message, status }) => {
   return (
     <div
       className={cn("message", {
-        "message--mine": isMine,
-        "message--is-typing": isTyping,
-        "message--image": attachments && attachments.length === 1,
-        "message--audio": audio,
+        "message--mine": status.isMine,
+        "message--is-typing": status.isTyping,
+        "message--image":
+          message.attachments && message.attachments.length === 1,
+        "message--audio": message.audio,
       })}
     >
       <div className="message__avatar">
-        <img src={avatar} alt={`Avatar ${user.fullname}`} />
+        <Avatar user={user} />
       </div>
-      <div>
-        <div className="message__content">
-          <div className="message__info">
-            {(audio || text || isTyping) && (
-              <div className="message__bubble">
-                {text && <p className="message__text">{text}</p>}
-                {isTyping && (
-                  <div className="message__typing">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                )}
-                {audio && <AudioMessage audio={audio} />}
-              </div>
-            )}
-            {attachments && (
-              <div className="message__attachments">
-                {attachments.map((item) => (
-                  <div
-                    key={item.filename}
-                    className="message__attachments-item"
-                  >
-                    <img src={item.url} alt={item.filename} />
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {date && (
-              <span className="message__date">
-                {isMine && <IconReaded isMine={isMine} isReaded={isReaded} />}
-                {date && <Time date={date} />}
-              </span>
-            )}
-          </div>
+      <div className="message__content">
+        <div className="message__info">
+          {(message.audio || message.text || status.isTyping) && (
+            <div className="message__bubble">
+              {message.text && <p className="message__text">{message.text}</p>}
+              {status.isTyping && (
+                <div className="message__typing">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              )}
+              {message.audio && <AudioMessage audio={message.audio} />}
+            </div>
+          )}
+          {message.attachments && (
+            <div className="message__attachments">
+              {message.attachments.map((item) => (
+                <div key={item.filename} className="message__attachments-item">
+                  <img src={item.url} alt={item.filename} />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="message__status">
+          {status.isMine && (
+            <IconReaded isMine={status.isMine} isReaded={status.isReaded} />
+          )}
+          {message.sent_at && (
+            <span className="message__date">
+              {message.sent_at && <Time date={message.sent_at} />}
+            </span>
+          )}
         </div>
       </div>
     </div>

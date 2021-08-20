@@ -26,6 +26,12 @@
     opacity: 1;
   }
 
+  &__emoji-picker {
+    position: absolute;
+    bottom: 60px;
+    z-index: 1;
+  }
+
   &__actions {
     display: flex;
     align-items: center;
@@ -35,6 +41,20 @@
 
     span.anticon-send {
       font-size: 26px;
+    }
+
+    &-upload-btn {
+      input {
+        &::-webkit-file-upload-button {
+          cursor: pointer;
+        }
+      }
+      &:hover {
+        button {
+          color: #202020 !important;
+          opacity: 1;
+        }
+      }
     }
   }
 

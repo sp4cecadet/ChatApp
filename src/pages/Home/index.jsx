@@ -1,5 +1,3 @@
-import { Messages } from "components";
-
 import {
   TeamOutlined,
   FormOutlined,
@@ -8,12 +6,10 @@ import {
 import { Button } from "antd";
 
 import "./Home.scss";
-import Status from "components/Status";
-import ChatInput from "components/ChatInput";
-import Dialogs from "containers/Dialogs";
-import dialogsData from "dialogs.json";
+import { Status, ChatInput } from "components/";
+import { Dialogs, Messages } from "containers/";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <section className="home">
       <div className="chat">
@@ -27,7 +23,7 @@ const Home = () => {
           </div>
 
           <div className="chat__contacts-list">
-            <Dialogs items={dialogsData} />
+            <Dialogs userId="1" />
           </div>
         </div>
         <div className="chat__dialog">

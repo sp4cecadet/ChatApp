@@ -15,12 +15,21 @@ const getMessageDate = (sent_at) => {
   }
 };
 
-const DialogItem = ({ user, message, isMine }) => {
+const DialogItem = ({
+  _id,
+  user,
+  message,
+  isMine,
+  onSelect,
+  selectedDialog,
+}) => {
   return (
     <div
       className={cn("dialogs__item", {
         "dialogs__item--online": user.isOnline,
+        "dialogs__item--selected": selectedDialog === _id,
       })}
+      onClick={onSelect.bind(this, _id)}
     >
       <div className="dialogs__item-avatar">
         <Avatar user={user} />

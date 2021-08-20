@@ -14,18 +14,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 0px 20px 20px;
-      width: 305px;
-      & > div {
-        span {
-          display: inline-block;
-          margin-right: 5px;
-        }
-      }
     }
     .chat__contacts-search {
       padding: 0 0px 20px 20px;
-
-      width: 305px;
 
       .ant-input {
         background-color: #f7f8f9;
@@ -64,9 +55,6 @@
     }
 
     &-messages {
-      position: relative;
-      overflow-y: auto;
-      padding: 30px;
       height: calc(100% - 138px);
 
       .ant-empty {

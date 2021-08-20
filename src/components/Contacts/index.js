@@ -6,7 +6,14 @@ import { Input, Empty } from "antd";
 import "./Contacts.scss";
 import { DialogItem } from "components/";
 
-const Contacts = ({ items, userId, onSearch, searchValue }) => {
+const Contacts = ({
+  items,
+  userId,
+  onSearch,
+  searchValue,
+  currentDialogId,
+  onSelectDialog,
+}) => {
   return (
     <div className="contacts">
       <div className="chat__contacts-search">
@@ -19,8 +26,10 @@ const Contacts = ({ items, userId, onSearch, searchValue }) => {
       {items.length ? (
         orderBy(items, ["sent_at"], ["desc"]).map((item) => (
           <DialogItem
+            onSelect={onSelectDialog}
             key={item._id}
             isMine={item.user._id === userId}
+            selectedDialog={currentDialogId}
             {...item}
           />
         ))
