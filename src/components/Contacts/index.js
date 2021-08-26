@@ -23,12 +23,12 @@ const Contacts = ({
           onChange={(e) => onSearch(e.target.value)}
         />
       </div>
-      {items.length ? (
+      {items.length > 0 ? (
         orderBy(items, ["sent_at"], ["desc"]).map((item) => (
           <DialogItem
             onSelect={onSelectDialog}
             key={item._id}
-            isMine={item.user._id === userId}
+            isMine={item.author._id === userId}
             selectedDialog={currentDialogId}
             {...item}
           />

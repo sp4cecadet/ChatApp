@@ -26,29 +26,29 @@ const DialogItem = ({
   return (
     <div
       className={cn("dialogs__item", {
-        "dialogs__item--online": user.isOnline,
+        // "dialogs__item--online":  user.last_seen ,
         "dialogs__item--selected": selectedDialog === _id,
       })}
       onClick={onSelect.bind(this, _id)}
     >
-      <div className="dialogs__item-avatar">
+      {/* <div className="dialogs__item-avatar">
         <Avatar user={user} />
-      </div>
+      </div> */}
       <div className="dialogs__item-info">
         <div className="dialogs__item-info-top">
-          <b>{user.fullname}</b>
-          <span>{getMessageDate(message.sent_at)}</span>
+          {/* <b>{user.fullname}</b> */}
+          {/* <span>{getMessageDate(message.sent_at)}</span> */}
         </div>
         <div className="dialogs__item-info-bottom">
-          <p>{message.text}</p>
+          {/* <p>{message.lastMessage}</p> */}
 
-          {user.unreaded > 0 ? (
+          {/* {user.unreaded > 0 ? (
             <div className="dialogs__item-info-bottom-count">
               {user.unreaded > 9 ? "9+" : user.unreaded}
             </div>
           ) : (
             isMine && <IconReaded isMine={isMine} isReaded={message.isReaded} />
-          )}
+          )} */}
         </div>
       </div>
     </div>

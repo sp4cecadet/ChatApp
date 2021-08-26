@@ -23,7 +23,7 @@ const Home = (props) => {
           </div>
 
           <div className="chat__contacts-list">
-            <Dialogs userId="1" />
+            <Dialogs />
           </div>
         </div>
         <div className="chat__dialog">

@@ -14,6 +14,7 @@ const LoginForm = (props) => {
     handleBlur,
     handleSubmit,
     isValid,
+    isSubmitting,
     dirty,
   } = props;
 
@@ -62,8 +63,15 @@ const LoginForm = (props) => {
           </Form.Item>
 
           <Form.Item>
-            {dirty && !isValid && <span>Error</span>}
-            <Button onClick={handleSubmit} type="primary" size="large">
+            {dirty && !isValid && (
+              <span>Одно или несколько полей заполнено неверно</span>
+            )}
+            <Button
+              disabled={isSubmitting}
+              onClick={handleSubmit}
+              type="primary"
+              size="large"
+            >
               Войти в аккаунт
             </Button>
           </Form.Item>

@@ -9,7 +9,7 @@ const Auth = () => {
   return (
     <section className="auth">
       <div className="auth__content">
-        <Route exact path={["/", "/login"]}>
+        <Route exact path="/login">
           <LoginForm />
         </Route>
         <Route exact path="/register">
