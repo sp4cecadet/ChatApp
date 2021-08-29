@@ -24,11 +24,12 @@ const Contacts = ({
         />
       </div>
       {items.length > 0 ? (
-        orderBy(items, ["sent_at"], ["desc"]).map((item) => (
+        orderBy(items, ["created_at"], ["desc"]).map((item) => (
           <DialogItem
             onSelect={onSelectDialog}
             key={item._id}
-            isMine={item.author._id === userId}
+            userId={userId}
+            isMine={item.lastMessage.sender === userId}
             selectedDialog={currentDialogId}
             {...item}
           />

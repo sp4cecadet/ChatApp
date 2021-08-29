@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Empty, Spin } from "antd";
-import cn from "classnames";
 
 import { Message } from "components/";
 

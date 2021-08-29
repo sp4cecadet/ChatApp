@@ -15,11 +15,16 @@ const actions = {
   fetchUserLogin: (postData) => (dispatch) => {
     return userAPI.signin(postData).then(({ data }) => {
       if (data.token) {
-        window.axios.defaults.headers.common["token"] = data.token;
         window.localStorage["token"] = data.token;
+        window.axios.defaults.headers.common["token"] =
+          window.localStorage.token;
         dispatch(actions.fetchUserData());
       }
     });
+  },
+
+  fetchUserRegister: (postData) => (dispatch) => {
+    return userAPI.signup(postData);
   },
 };
 

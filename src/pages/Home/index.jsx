@@ -5,9 +5,14 @@ import {
 } from "@ant-design/icons";
 import { Button } from "antd";
 
+import { withRouter } from "react-router";
+import { connect } from "react-redux";
+
 import "./Home.scss";
 import { Status, ChatInput } from "components/";
 import { Dialogs, Messages } from "containers/";
+
+import { userActions } from "redux/actions";
 
 const Home = (props) => {
   return (
@@ -23,7 +28,7 @@ const Home = (props) => {
           </div>
 
           <div className="chat__contacts-list">
-            <Dialogs />
+            <Dialogs userId={props.user._id} />
           </div>
         </div>
         <div className="chat__dialog">
@@ -49,4 +54,6 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default withRouter(
+  connect(({ user }) => ({ user: user.data }), userActions)(Home)
+);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Input } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, Block } from "components";
@@ -17,6 +17,19 @@ const LoginForm = (props) => {
     isSubmitting,
     dirty,
   } = props;
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        event.preventDefault();
+        handleSubmit();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
 
   return (
     <div>
@@ -76,7 +89,7 @@ const LoginForm = (props) => {
             </Button>
           </Form.Item>
 
-          <Link className="auth__register-link" to="/register">
+          <Link className="auth__register-link" to="/signup">
             Зарегистрироваться
           </Link>
         </Form>

@@ -11,10 +11,10 @@ import "./styles/index.scss";
 import "emoji-mart/css/emoji-mart.css";
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );

@@ -14,24 +14,39 @@ const Dialogs = ({
   const [searchValue, setValue] = useState("");
   const [filtered, setFiltered] = useState(Array.from(items));
 
-  const onChangeInput = (value) => {
+  const onChangeInput = (value = "") => {
     setFiltered(
       items.filter(
         (dialog) =>
-          dialog.user.fullname.toLowerCase().indexOf(value.toLowerCase()) >= 0
+          dialog.author.fullname.toLowerCase().indexOf(value.toLowerCase()) >=
+            0 ||
+          dialog.partner.fullname.toLowerCase().indexOf(value.toLowerCase()) >=
+            0
       )
     );
 
     setValue(value);
   };
 
+  window.fetchDialogs = fetchDialogs;
+
   useEffect(() => {
-    if (!items.length) {
-      fetchDialogs();
-    } else {
-      setFiltered(items);
+    if (items.length) {
+      onChangeInput();
     }
   }, [items]);
+
+  useEffect(() => {
+    fetchDialogs();
+
+    // socket.on("SERVER:DIALOG_CREATED", fetchDialogs);
+    // socket.on("SERVER:NEW_MESSAGE", fetchDialogs);
+    // socket.on("SERVER:MESSAGES_READED", updateReadedStatus);
+    // return () => {
+    //   socket.removeListener("SERVER:DIALOG_CREATED", fetchDialogs);
+    //   socket.removeListener("SERVER:NEW_MESSAGE", fetchDialogs);
+    // };
+  }, []);
 
   return (
     <Contacts

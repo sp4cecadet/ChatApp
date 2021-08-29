@@ -1,8 +1,9 @@
 import { withFormik } from "formik";
 import validateFunc from "utils/validate";
+import { withRouter } from "react-router";
 
-import LoginForm from "../components/LoginForm";
 import { showNotification } from "utils/helpers";
+import LoginForm from "../components/LoginForm";
 import { userActions } from "redux/actions";
 import store from "redux/store";
 
@@ -20,7 +21,7 @@ const LoginFormContainer = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { setSubmitting, props }) => {
+  handleSubmit: (values, { setSubmitting, resetForm, props }) => {
     store
       .dispatch(userActions.fetchUserLogin(values))
       .then(() => {
@@ -29,19 +30,20 @@ const LoginFormContainer = withFormik({
           text: "Добро пожаловать!",
           type: "success",
         });
-        setSubmitting(false);
+        setTimeout(() => props.history.push("/"), 300);
       })
       .catch(() => {
+        setSubmitting(false);
+        resetForm();
         showNotification({
           title: "Ошибка авторизации",
           text: "Неверные e-mail и/или пароль",
           type: "error",
         });
-        setSubmitting(false);
       });
   },
 
   displayName: "LoginForm", // helps with React DevTools
 })(LoginForm);
 
-export default LoginFormContainer;
+export default withRouter(LoginFormContainer);

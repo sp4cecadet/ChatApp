@@ -70,19 +70,19 @@ const AudioMessage = ({ audio }) => {
   );
 };
 
-const Message = ({ user, message, status }) => {
+const Message = ({ sender, message, status, isMine, isTyping }) => {
   return (
     <div
       className={cn("message", {
-        "message--mine": status.isMine,
-        "message--is-typing": status.isTyping,
+        "message--mine": isMine,
+        "message--is-typing": isTyping,
         "message--image":
           message.attachments && message.attachments.length === 1,
         "message--audio": message.audio,
       })}
     >
       <div className="message__avatar">
-        <Avatar user={user} />
+        <Avatar user={sender._id} />
       </div>
       <div className="message__content">
         <div className="message__info">
@@ -110,12 +110,12 @@ const Message = ({ user, message, status }) => {
           )}
         </div>
         <div className="message__status">
-          {status.isMine && (
+          {isMine && (
             <IconReaded isMine={status.isMine} isReaded={status.isReaded} />
           )}
-          {message.sent_at && (
+          {message.createdAt && (
             <span className="message__date">
-              {message.sent_at && <Time date={message.sent_at} />}
+              {message.createdAt && <Time date={message.createdAt} />}
             </span>
           )}
         </div>
