@@ -4,7 +4,7 @@ import {
   EllipsisOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
-
+import { useEffect } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
@@ -12,9 +12,17 @@ import "./Home.scss";
 import { Status, ChatInput } from "components/";
 import { Dialogs, Messages } from "containers/";
 
-import { userActions } from "redux/actions";
+import { dialogsActions } from "redux/actions";
 
 const Home = (props) => {
+  const { currentDialogId, setCurrentDialogId, user } = props;
+
+  useEffect(() => {
+    const { pathname } = props.location;
+    const dialogId = pathname.split("/").pop();
+    setCurrentDialogId(dialogId);
+  }, [props.location.pathname]);
+
   return (
     <section className="home">
       <div className="chat">
@@ -28,7 +36,7 @@ const Home = (props) => {
           </div>
 
           <div className="chat__contacts-list">
-            <Dialogs userId={props.user._id} />
+            <Dialogs userId={user._id} />
           </div>
         </div>
         <div className="chat__dialog">
@@ -43,7 +51,7 @@ const Home = (props) => {
             <EllipsisOutlined style={{ fontSize: 24 }} />
           </div>
           <div className="chat__dialog-messages">
-            <Messages />
+            <Messages userId={user._id} />
           </div>
           <div className="chat__dialog-input">
             <ChatInput />
@@ -55,5 +63,5 @@ const Home = (props) => {
 };
 
 export default withRouter(
-  connect(({ user }) => ({ user: user.data }), userActions)(Home)
+  connect(({ user }) => ({ user: user.data }), dialogsActions)(Home)
 );

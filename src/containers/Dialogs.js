@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { Contacts } from "components/";
 import { dialogsActions } from "redux/actions";
+import socket from "core/socket";
 
 const Dialogs = ({
   fetchDialogs,
@@ -28,8 +29,6 @@ const Dialogs = ({
     setValue(value);
   };
 
-  window.fetchDialogs = fetchDialogs;
-
   useEffect(() => {
     if (items.length) {
       onChangeInput();
@@ -39,13 +38,13 @@ const Dialogs = ({
   useEffect(() => {
     fetchDialogs();
 
-    // socket.on("SERVER:DIALOG_CREATED", fetchDialogs);
-    // socket.on("SERVER:NEW_MESSAGE", fetchDialogs);
+    socket.on("SERVER:DIALOG_CREATED", fetchDialogs);
+    socket.on("SERVER:NEW_MESSAGE", fetchDialogs);
     // socket.on("SERVER:MESSAGES_READED", updateReadedStatus);
-    // return () => {
-    //   socket.removeListener("SERVER:DIALOG_CREATED", fetchDialogs);
-    //   socket.removeListener("SERVER:NEW_MESSAGE", fetchDialogs);
-    // };
+    return () => {
+      socket.removeListener("SERVER:DIALOG_CREATED", fetchDialogs);
+      socket.removeListener("SERVER:NEW_MESSAGE", fetchDialogs);
+    };
   }, []);
 
   return (
@@ -54,7 +53,6 @@ const Dialogs = ({
       userId={userId}
       onSearch={onChangeInput}
       inputValue={searchValue}
-      onSelectDialog={setCurrentDialogId}
       currentDialogId={currentDialogId}
     />
   );

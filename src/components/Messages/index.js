@@ -5,7 +5,7 @@ import { Message } from "components/";
 
 import "./Messages.scss";
 
-const Messages = ({ blockRef, isLoading, items }) => {
+const Messages = ({ blockRef, isLoading, userId, sender, items }) => {
   return (
     <div ref={blockRef} className="messages">
       {isLoading ? (
@@ -14,7 +14,13 @@ const Messages = ({ blockRef, isLoading, items }) => {
         </div>
       ) : items?.length > 0 && !isLoading ? (
         items.map((item) => {
-          return <Message key={item._id} {...item} />;
+          return (
+            <Message
+              key={item._id}
+              isMine={item.sender._id === userId}
+              {...item}
+            />
+          );
         })
       ) : (
         <Empty description="Начните диалог" />

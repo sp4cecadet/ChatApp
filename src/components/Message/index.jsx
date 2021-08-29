@@ -70,38 +70,46 @@ const AudioMessage = ({ audio }) => {
   );
 };
 
-const Message = ({ sender, message, status, isMine, isTyping }) => {
+const Message = ({
+  audio = null,
+  text,
+  readed,
+  sender,
+  userId,
+  attachments,
+  isMine,
+  createdAt,
+}) => {
   return (
     <div
       className={cn("message", {
         "message--mine": isMine,
-        "message--is-typing": isTyping,
-        "message--image":
-          message.attachments && message.attachments.length === 1,
-        "message--audio": message.audio,
+        // "message--is-typing": isTyping,
+        "message--image": attachments && attachments.length === 1,
+        "message--audio": audio,
       })}
     >
       <div className="message__avatar">
-        <Avatar user={sender._id} />
+        <Avatar user={sender} />
       </div>
       <div className="message__content">
         <div className="message__info">
-          {(message.audio || message.text || status.isTyping) && (
+          {(audio || text) && ( // add || isTyping
             <div className="message__bubble">
-              {message.text && <p className="message__text">{message.text}</p>}
-              {status.isTyping && (
+              {text && <p className="message__text">{text}</p>}
+              {/* {status.isTyping && (
                 <div className="message__typing">
                   <span />
                   <span />
                   <span />
                 </div>
-              )}
-              {message.audio && <AudioMessage audio={message.audio} />}
+              )} */}
+              {audio && <AudioMessage audio={audio} />}
             </div>
           )}
-          {message.attachments && (
+          {attachments && (
             <div className="message__attachments">
-              {message.attachments.map((item) => (
+              {attachments.map((item) => (
                 <div key={item.filename} className="message__attachments-item">
                   <img src={item.url} alt={item.filename} />
                 </div>
@@ -111,11 +119,11 @@ const Message = ({ sender, message, status, isMine, isTyping }) => {
         </div>
         <div className="message__status">
           {isMine && (
-            <IconReaded isMine={status.isMine} isReaded={status.isReaded} />
+            <IconReaded isMine={sender._id === userId} isReaded={readed} />
           )}
-          {message.createdAt && (
+          {createdAt && (
             <span className="message__date">
-              {message.createdAt && <Time date={message.createdAt} />}
+              {createdAt && <Time date={createdAt} />}
             </span>
           )}
         </div>

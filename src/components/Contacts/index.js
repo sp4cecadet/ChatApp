@@ -12,7 +12,6 @@ const Contacts = ({
   onSearch,
   searchValue,
   currentDialogId,
-  onSelectDialog,
 }) => {
   return (
     <div className="contacts">
@@ -26,11 +25,10 @@ const Contacts = ({
       {items.length > 0 ? (
         orderBy(items, ["created_at"], ["desc"]).map((item) => (
           <DialogItem
-            onSelect={onSelectDialog}
             key={item._id}
             userId={userId}
-            isMine={item.lastMessage.sender === userId}
-            selectedDialog={currentDialogId}
+            isMine={item?.lastMessage?.sender === userId || false}
+            currentDialogId={currentDialogId}
             {...item}
           />
         ))

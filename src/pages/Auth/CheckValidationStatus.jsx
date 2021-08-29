@@ -54,7 +54,6 @@ const CheckValidationStatus = () => {
       userAPI
         .verifyHash(hash)
         .then((res) => {
-          console.log(res.data);
           if (res.data.status === "verified") {
             setStatus({ verified: "alreadyVerified", checking: false });
           } else if (res.data.status === "success")
@@ -65,8 +64,6 @@ const CheckValidationStatus = () => {
         });
     }
   }, []);
-
-  console.log({ info, checking, verified, hash });
 
   return (
     <div className="verify-block">

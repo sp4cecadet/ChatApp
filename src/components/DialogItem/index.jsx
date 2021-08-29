@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-
+import { Link } from "react-router-dom";
 import { format, isToday } from "date-fns";
 
 import "./DialogItem.scss";
@@ -32,43 +32,42 @@ const DialogItem = ({
   author,
   partner,
   lastMessage,
-  onSelect,
-  selectedDialog,
   userId,
+  currentDialogId,
 }) => {
-  console.log(userId);
-  console.log(lastMessage);
   return (
-    <div
-      className={cn("dialogs__item", {
-        "dialogs__item--online": partner.isOnline,
-        "dialogs__item--selected": selectedDialog === _id,
-      })}
-      onClick={onSelect.bind(this, _id)}
-    >
-      <div className="dialogs__item-avatar">
-        <Avatar user={partner._id === userId ? author : partner} />
-      </div>
-      <div className="dialogs__item-info">
-        <div className="dialogs__item-info-top">
-          <b>{partner._id === userId ? author.fullname : partner.fullname}</b>
-          <span>{getMessageDate(lastMessage.createdAt)}</span>
+    <Link to={`/dialog/${_id}`}>
+      <div
+        className={cn("dialogs__item", {
+          "dialogs__item--online":
+            partner._id === userId ? author.isOnline : partner.isOnline,
+          "dialogs__item--selected": currentDialogId === _id,
+        })}
+      >
+        <div className="dialogs__item-avatar">
+          <Avatar user={partner._id === userId ? author : partner} />
         </div>
-        <div className="dialogs__item-info-bottom">
-          <p>{renderLastMessage(lastMessage, userId)}</p>
-          {isMine && (
-            <IconReaded isMine={isMine} isReaded={lastMessage.readed} />
-          )}
+        <div className="dialogs__item-info">
+          <div className="dialogs__item-info-top">
+            <b>{author._id === userId ? partner.fullname : author.fullname}</b>
+            <span>{getMessageDate(lastMessage.createdAt)}</span>
+          </div>
+          <div className="dialogs__item-info-bottom">
+            <p>{renderLastMessage(lastMessage, userId)}</p>
+            {isMine && (
+              <IconReaded isMine={isMine} isReaded={lastMessage.readed} />
+            )}
 
-          {/* {user.unreaded > 0 ? (
+            {/* {user.unreaded > 0 ? (
             <div className="dialogs__item-info-bottom-count">
               {user.unreaded > 9 ? "9+" : user.unreaded}
             </div>
           ) : (
           )} */}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -19,7 +19,7 @@ const App = (props) => {
           component={Auth}
         />
         <Route
-          path="/"
+          path={["/", "/dialog/:id"]}
           render={() => (isAuth ? <Home /> : <Redirect to="/signin" />)}
         />
       </Switch>
