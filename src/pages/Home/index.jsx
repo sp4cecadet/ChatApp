@@ -9,8 +9,7 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
 import "./Home.scss";
-import { Status, ChatInput } from "components/";
-import { Dialogs, Messages } from "containers/";
+import { Dialogs, Messages, ChatInput, Status } from "containers/";
 
 import { dialogsActions } from "redux/actions";
 
@@ -40,16 +39,7 @@ const Home = (props) => {
           </div>
         </div>
         <div className="chat__dialog">
-          <div className="chat__dialog-header">
-            <div />
-            <div className="chat__dialog-header--centered">
-              <b className="chat__dialog-header-username">Александр Пушкин</b>
-              <div className="chat__dialog-header-status">
-                <Status online />
-              </div>
-            </div>
-            <EllipsisOutlined style={{ fontSize: 24 }} />
-          </div>
+          <Status />
           <div className="chat__dialog-messages">
             <Messages userId={user._id} />
           </div>

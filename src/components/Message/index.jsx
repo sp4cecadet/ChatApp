@@ -118,9 +118,7 @@ const Message = ({
           )}
         </div>
         <div className="message__status">
-          {isMine && (
-            <IconReaded isMine={sender._id === userId} isReaded={readed} />
-          )}
+          {isMine && <IconReaded isMine={isMine} isReaded={readed} />}
           {createdAt && (
             <span className="message__date">
               {createdAt && <Time date={createdAt} />}

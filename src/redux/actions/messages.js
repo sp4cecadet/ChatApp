@@ -8,9 +8,8 @@ const actions = {
   addMessage: (message) => (dispatch, getState) => {
     const { dialogs } = getState();
     const { currentDialogId } = dialogs;
-    console.log(currentDialogId);
+
     if (currentDialogId === message.dialog) {
-      console.log("TRUE!");
       dispatch({
         type: "MESSAGES:ADD_MESSAGE",
         payload: message,
@@ -21,6 +20,13 @@ const actions = {
     type: "MESSAGES:SET_IS_LOADING",
     payload: bool,
   }),
+
+  fetchSendMessage:
+    ({ text, dialogId }) =>
+    (dispatch) => {
+      return messagesAPI.send(text, dialogId);
+    },
+
   fetchMessages: (dialogId) => (dispatch) => {
     dispatch(actions.setIsLoading(true));
     messagesAPI
