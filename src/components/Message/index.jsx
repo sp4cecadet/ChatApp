@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Emoji } from "emoji-mart";
+import { Popover, Button } from "antd";
+import { EllipsisOutlined } from "@ant-design/icons";
 
 import { Time, IconReaded, Avatar } from "components/";
 import waveSvg from "assets/img/wave.svg";
@@ -79,6 +81,7 @@ const Message = ({
   attachments,
   isMine,
   createdAt,
+  onRemoveMessage,
 }) => {
   return (
     <div
@@ -94,19 +97,31 @@ const Message = ({
       </div>
       <div className="message__content">
         <div className="message__info">
-          {(audio || text) && ( // add || isTyping
-            <div className="message__bubble">
-              {text && <p className="message__text">{text}</p>}
-              {/* {status.isTyping && (
+          <Popover
+            content={
+              isMine && (
+                <div>
+                  <Button onClick={onRemoveMessage}>Удалить сообщение</Button>
+                </div>
+              )
+            }
+            title="Действия с сообщением"
+            trigger="click"
+          >
+            {(audio || text) && ( // add || isTyping
+              <div className="message__bubble">
+                {text && <p className="message__text">{text}</p>}
+                {/* {status.isTyping && (
                 <div className="message__typing">
                   <span />
                   <span />
                   <span />
                 </div>
               )} */}
-              {audio && <AudioMessage audio={audio} />}
-            </div>
-          )}
+                {audio && <AudioMessage audio={audio} />}
+              </div>
+            )}
+          </Popover>
           {attachments && (
             <div className="message__attachments">
               {attachments.map((item) => (
@@ -118,7 +133,7 @@ const Message = ({
           )}
         </div>
         <div className="message__status">
-          {isMine && <IconReaded isMine={isMine} isReaded={readed} />}
+          <IconReaded isMine={isMine} isReaded={readed} />
           {createdAt && (
             <span className="message__date">
               {createdAt && <Time date={createdAt} />}

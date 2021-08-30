@@ -21,6 +21,17 @@ const actions = {
     payload: bool,
   }),
 
+  removeMessage: (id) => (dispatch) => {
+    messagesAPI
+      .removeById(id)
+      .then(({ data }) => {
+        dispatch({ type: "MESSAGES:REMOVE_MESSAGE", payload: id });
+      })
+      .catch(() => {
+        dispatch(actions.setIsLoading(false));
+      });
+  },
+
   fetchSendMessage:
     ({ text, dialogId }) =>
     (dispatch) => {

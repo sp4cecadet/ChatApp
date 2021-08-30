@@ -5,7 +5,14 @@ import { Message } from "components/";
 
 import "./Messages.scss";
 
-const Messages = ({ blockRef, isLoading, userId, sender, items }) => {
+const Messages = ({
+  onRemoveMessage,
+  blockRef,
+  isLoading,
+  userId,
+  sender,
+  items,
+}) => {
   return (
     <div ref={blockRef} className="messages">
       {isLoading ? (
@@ -18,6 +25,7 @@ const Messages = ({ blockRef, isLoading, userId, sender, items }) => {
             <Message
               key={item._id}
               isMine={item.sender._id === userId}
+              onRemoveMessage={onRemoveMessage.bind(this, item._id)}
               {...item}
             />
           );

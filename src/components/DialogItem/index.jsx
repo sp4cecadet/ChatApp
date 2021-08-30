@@ -50,10 +50,18 @@ const DialogItem = ({
         <div className="dialogs__item-info">
           <div className="dialogs__item-info-top">
             <b>{author._id === userId ? partner.fullname : author.fullname}</b>
-            <span>{getMessageDate(lastMessage.createdAt)}</span>
+            {lastMessage ? (
+              <span>{getMessageDate(lastMessage.createdAt)}</span>
+            ) : (
+              ""
+            )}
           </div>
           <div className="dialogs__item-info-bottom">
-            <p>{renderLastMessage(lastMessage, userId)}</p>
+            {lastMessage ? (
+              <p>{renderLastMessage(lastMessage, userId)}</p>
+            ) : (
+              <p>Начните диалог</p>
+            )}
             {isMine && (
               <IconReaded isMine={isMine} isReaded={lastMessage.readed} />
             )}
