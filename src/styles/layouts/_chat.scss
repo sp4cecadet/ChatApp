@@ -1,5 +1,5 @@
 .chat {
-  height: 100vh;
+  height: 100%;
   display: flex;
   background-color: #ffffff;
   width: 1140px;
@@ -9,14 +9,14 @@
   &__contacts {
     width: 320px;
     border-right: 1px solid #f7f7f7;
+    padding: 20px 10px;
     &-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0px 20px 20px;
     }
     .chat__contacts-search {
-      padding: 0 0px 20px 20px;
+      padding: 20px 0px;
 
       .ant-input {
         background-color: #f7f8f9;
@@ -28,6 +28,8 @@
       height: calc(100% - 124px);
       overflow-y: auto;
       overflow-x: hidden;
+
+      margin-bottom: 20px;
     }
   }
 

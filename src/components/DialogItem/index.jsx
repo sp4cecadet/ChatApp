@@ -23,7 +23,7 @@ const renderLastMessage = (message, userId) => {
     text = message.text;
   }
 
-  return `${message.sender._id === userId ? "Вы: " : ""}${text}`;
+  return `${message.sender === userId ? "Вы: " : ""}${text}`;
 };
 
 const DialogItem = ({

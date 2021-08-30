@@ -22,12 +22,15 @@ const ChatInput = (props) => {
   const toggleEmojiPicker = () => {
     setEmojiPickerVisible(!emojiPickerVisible);
   };
-  const handleSendMessage = (e) => {
+  const handleKeyboardEvent = (e) => {
     if (e.code === "Enter" || e.code === "NumpadEnter") {
-      console.log("Sending...");
-      onSendMessage({ text: text, dialogId: currentDialogId });
-      setText("");
+      sendMessage();
     }
+  };
+
+  const sendMessage = () => {
+    onSendMessage({ text: text, dialogId: currentDialogId });
+    setText("");
   };
 
   return (
@@ -50,7 +53,7 @@ const ChatInput = (props) => {
         placeholder="Введите текст сообщения..."
         value={text}
         onKeyUp={(e) => {
-          handleSendMessage(e);
+          handleKeyboardEvent(e);
         }}
         onChange={(e) => setText(e.target.value)}
       />
@@ -71,6 +74,7 @@ const ChatInput = (props) => {
         <Button
           type="ghost"
           shape="circle"
+          onClick={sendMessage}
           icon={text ? <SendOutlined /> : <AudioOutlined />}
         />
       </div>

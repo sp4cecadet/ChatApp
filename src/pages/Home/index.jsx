@@ -1,15 +1,9 @@
-import {
-  TeamOutlined,
-  FormOutlined,
-  EllipsisOutlined,
-} from "@ant-design/icons";
-import { Button } from "antd";
 import { useEffect } from "react";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
 import "./Home.scss";
-import { Dialogs, Messages, ChatInput, Status } from "containers/";
+import { Messages, ChatInput, Status, Sidebar } from "containers/";
 
 import { dialogsActions } from "redux/actions";
 
@@ -25,21 +19,10 @@ const Home = (props) => {
   return (
     <section className="home">
       <div className="chat">
-        <div className="chat__contacts">
-          <div className="chat__contacts-header">
-            <div>
-              <TeamOutlined />
-              <span>Список диалогов</span>
-            </div>
-            <Button type="ghost" shape="circle" icon={<FormOutlined />} />
-          </div>
-
-          <div className="chat__contacts-list">
-            <Dialogs userId={user._id} />
-          </div>
-        </div>
+        <Sidebar />
         <div className="chat__dialog">
           <Status />
+
           <div className="chat__dialog-messages">
             <Messages userId={user._id} />
           </div>

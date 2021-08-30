@@ -1,5 +1,7 @@
 import { userAPI } from "utils/api";
 
+import { showNotification } from "utils/helpers";
+
 const actions = {
   setUserData: (data) => ({
     type: "USER:SET_DATA",
@@ -26,14 +28,28 @@ const actions = {
   },
 
   fetchUserLogin: (postData) => (dispatch) => {
-    return userAPI.signin(postData).then(({ data }) => {
-      if (data.token) {
-        window.localStorage["token"] = data.token;
-        window.axios.defaults.headers.common["token"] =
-          window.localStorage.token;
+    return userAPI
+      .signin(postData)
+      .then(({ data }) => {
+        const { token } = data;
+        showNotification({
+          title: "Авторизация выполнена",
+          text: "Добро пожаловать!",
+          type: "success",
+        });
+        window.axios.defaults.headers.common["token"] = token;
+        window.localStorage["token"] = token;
         dispatch(actions.fetchUserData());
-      }
-    });
+        dispatch(actions.setIsAuth(true));
+        return data;
+      })
+      .catch(({ response }) => {
+        showNotification({
+          title: "Ошибка при авторизации",
+          text: "Неверный логин или пароль",
+          type: "error",
+        });
+      });
   },
 
   fetchUserRegister: (postData) => (dispatch) => {

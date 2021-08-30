@@ -1,7 +1,7 @@
 .chat-input {
   background-color: #ffffff;
   display: flex;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 806px;
   padding: 20px;
@@ -40,7 +40,7 @@
     margin-left: 15px;
 
     span.anticon-send {
-      font-size: 26px;
+      font-size: 22px;
     }
 
     &-upload-btn {
