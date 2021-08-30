@@ -6,10 +6,23 @@ const actions = {
     payload: data,
   }),
 
+  setIsAuth: (bool) => ({
+    type: "USER:SET_IS_AUTH",
+    payload: bool,
+  }),
+
   fetchUserData: () => (dispatch) => {
-    userAPI.getMe().then(({ data }) => {
-      dispatch(actions.setUserData(data));
-    });
+    userAPI
+      .getMe()
+      .then(({ data }) => {
+        dispatch(actions.setUserData(data));
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          dispatch(actions.setIsAuth(false));
+          delete window.localStorage.token;
+        }
+      });
   },
 
   fetchUserLogin: (postData) => (dispatch) => {

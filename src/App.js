@@ -3,12 +3,17 @@ import { connect } from "react-redux";
 import { Auth, Home } from "./pages";
 import { Route, Redirect, Switch } from "react-router-dom";
 
+import { userActions } from "redux/actions";
+import store from "redux/store";
+
 const App = (props) => {
   const { isAuth } = props;
 
   //   if (localStorage.token) {
   //     store.dispatch(setUser(localStorage.token));
   //   }
+
+  isAuth && store.dispatch(userActions.fetchUserData());
 
   return (
     <div className="wrapper">
