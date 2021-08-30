@@ -12,7 +12,7 @@ const getCorrectIndex = (number) => {
 
 export default (hash) => {
   const [r, g, b] = hash
-    .substr(4, 7)
+    .substr(21, 3)
     .split("")
     .map((char) => getCorrectIndex(char.charCodeAt(0)));
 
