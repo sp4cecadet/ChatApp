@@ -9,7 +9,6 @@ import { userActions } from "redux/actions";
 import store from "redux/store";
 
 import "./styles/index.scss";
-import "emoji-mart/css/emoji-mart.css";
 
 store.dispatch(userActions.fetchUserData());
 

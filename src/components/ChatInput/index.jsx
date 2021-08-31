@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 
 import { UploadField } from "@navjobs/upload";
-import { Picker } from "emoji-mart";
+import Picker from "emoji-picker-react";
 
 import "./ChatInput.scss";
 
@@ -33,12 +33,20 @@ const ChatInput = (props) => {
     setText("");
   };
 
+  const addEmoji = (event, emojiObject) => {
+    setText(text + emojiObject.emoji);
+  };
+
   return (
     <div className="chat-input">
       <div className="chat-input__smile-btn">
         {emojiPickerVisible && (
           <div className="chat-input__emoji-picker">
-            <Picker set="apple" />
+            <Picker
+              onEmojiClick={addEmoji}
+              disableSkinTonePicker={true}
+              pickerStyle={{ width: "400px", marginBottom: "5px" }}
+            />
           </div>
         )}
         <Button
