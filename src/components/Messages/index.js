@@ -11,6 +11,7 @@ const Messages = ({
   isLoading,
   userId,
   sender,
+  currentDialogId,
   items,
 }) => {
   return (
@@ -31,7 +32,7 @@ const Messages = ({
           );
         })
       ) : (
-        <Empty description="Начните диалог" />
+        currentDialogId && <Empty description="Начните диалог" />
       )}
     </div>
   );

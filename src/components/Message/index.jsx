@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { Emoji } from "emoji-mart";
 import { Popover, Button } from "antd";
-import { EllipsisOutlined } from "@ant-design/icons";
 
 import { Time, IconReaded, Avatar } from "components/";
 import waveSvg from "assets/img/wave.svg";

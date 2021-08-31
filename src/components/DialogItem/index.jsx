@@ -60,7 +60,7 @@ const DialogItem = ({
             {lastMessage ? (
               <p>{renderLastMessage(lastMessage, userId)}</p>
             ) : (
-              <p>Начните диалог</p>
+              <b>Начните диалог</b>
             )}
             {isMine && (
               <IconReaded isMine={isMine} isReaded={lastMessage.readed} />

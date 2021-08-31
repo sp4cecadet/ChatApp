@@ -15,7 +15,6 @@ const Home = (props) => {
     const dialogId = pathname.split("/").pop();
     setCurrentDialogId(dialogId);
   }, [props.location.pathname]);
-
   return (
     <section className="home">
       <div className="chat">
@@ -24,10 +23,10 @@ const Home = (props) => {
           <Status />
 
           <div className="chat__dialog-messages">
-            <Messages userId={user._id} />
+            {user && <Messages userId={user._id} />}
           </div>
           <div className="chat__dialog-input">
-            <ChatInput />
+            {currentDialogId && <ChatInput />}
           </div>
         </div>
       </div>
@@ -36,5 +35,11 @@ const Home = (props) => {
 };
 
 export default withRouter(
-  connect(({ user }) => ({ user: user.data }), dialogsActions)(Home)
+  connect(
+    ({ user, dialogs }) => ({
+      user: user.data,
+      currentDialogId: dialogs.currentDialogId,
+    }),
+    dialogsActions
+  )(Home)
 );

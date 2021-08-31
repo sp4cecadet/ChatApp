@@ -43,6 +43,7 @@ const Messages = ({
       user={user}
       userId={userId}
       onRemoveMessage={removeMessage}
+      currentDialogId={currentDialog?._id}
     />
   );
 };
