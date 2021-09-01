@@ -7,13 +7,15 @@
     color: $black;
     padding: 10px;
 
-    &--selected,
-    &--selected:hover {
-      background-color: #4280ff;
-      color: #ffffff;
+    $item: &;
+
+    &--selected {
+      border-right: 2px solid #4280ff;
+      p {
+        opacity: 1 !important;
+      }
     }
 
-    $item: &;
     &-avatar {
       position: relative;
       flex: 0 0 40px;
@@ -67,9 +69,10 @@
           opacity: 0.5;
           text-overflow: ellipsis;
           overflow: hidden;
-          width: 165px;
+          width: 200px;
           height: 1.2em;
           white-space: nowrap;
+          line-height: 15px;
         }
         &-count {
           position: absolute;

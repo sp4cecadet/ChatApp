@@ -95,49 +95,56 @@ const Message = ({
       </div>
       <div className="message__content">
         <div className="message__info">
-          <Popover
-            content={
-              isMine && (
-                <div>
-                  <Button onClick={onRemoveMessage}>Удалить сообщение</Button>
-                </div>
-              )
-            }
-            title="Действия с сообщением"
-            trigger="click"
-          >
-            {(audio || text) && ( // add || isTyping
-              <div className="message__bubble">
-                {text && <p className="message__text">{text}</p>}
-                {/* {status.isTyping && (
+          {(audio || text) && ( // add || isTyping
+            <div className="message__bubble">
+              {text && <p className="message__text">{text}</p>}
+              {/* {status.isTyping && (
                 <div className="message__typing">
                   <span />
                   <span />
                   <span />
                 </div>
               )} */}
-                {audio && <AudioMessage audio={audio} />}
-              </div>
-            )}
-          </Popover>
+              {audio && <AudioMessage audio={audio} />}
+            </div>
+          )}
+
           {attachments && (
             <div className="message__attachments">
               {attachments.map((item) => (
-                <div key={item.filename} className="message__attachments-item">
+                <div
+                  key={
+                    Math.floor(Math.random() * 1111111) *
+                    Math.floor(Math.random() * 1111111)
+                  }
+                  className="message__attachments-item"
+                >
                   <img src={item.url} alt={item.filename} />
                 </div>
               ))}
             </div>
           )}
         </div>
-        <div className="message__status">
-          <IconReaded isMine={isMine} isReaded={readed} />
-          {createdAt && (
-            <span className="message__date">
-              {createdAt && <Time date={createdAt} />}
-            </span>
-          )}
-        </div>
+        <Popover
+          content={
+            isMine && (
+              <div>
+                <Button onClick={onRemoveMessage}>Удалить сообщение</Button>
+              </div>
+            )
+          }
+          title="Действия над сообщением"
+          trigger="click"
+        >
+          <div className="message__status">
+            <IconReaded isMine={isMine} isReaded={readed} />
+            {createdAt && (
+              <span className="message__date">
+                {createdAt && <Time date={createdAt} />}
+              </span>
+            )}
+          </div>
+        </Popover>
       </div>
     </div>
   );

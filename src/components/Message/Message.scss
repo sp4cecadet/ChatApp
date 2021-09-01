@@ -41,6 +41,7 @@
   &__attachments {
     display: flex;
     margin-bottom: 5px;
+    justify-content: flex-start;
     &-item {
       margin-right: 5px;
       cursor: pointer;
@@ -59,13 +60,12 @@
   &__date {
     font-size: 12px;
     opacity: 0.5;
+    cursor: default;
   }
 
   &__text {
     color: #ffffff;
     line-height: 20px;
-    user-select: none;
-    cursor: default;
   }
 
   &--audio {
@@ -150,6 +150,10 @@
     #{$self}__text {
       color: $black;
     }
+
+    #{$self}__attachments {
+      justify-content: flex-end;
+    }
   }
 
   &--is-typing {
@@ -195,6 +199,9 @@
           height: 150px;
         }
       }
+    }
+    #{$self}__avatar {
+      top: 100px;
     }
   }
 }
