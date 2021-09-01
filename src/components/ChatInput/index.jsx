@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Input, Button } from "antd";
 import {
@@ -37,18 +37,32 @@ const ChatInput = (props) => {
     setText(text + emojiObject.emoji);
   };
 
+  const handleOutsideClick = (el, e) => {
+    if (el && !el.contains(e.target)) {
+      setEmojiPickerVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    const el = document.querySelector(".chat-input__smile-btn");
+    document.addEventListener("click", handleOutsideClick.bind(this, el));
+    return () => {
+      document.removeEventListener("click", handleOutsideClick.bind(this, el));
+    };
+  }, []);
+
   return (
     <div className="chat-input">
       <div className="chat-input__smile-btn">
-        {emojiPickerVisible && (
-          <div className="chat-input__emoji-picker">
+        <div className="chat-input__emoji-picker">
+          {emojiPickerVisible && (
             <Picker
               onEmojiClick={addEmoji}
               disableSkinTonePicker={true}
               pickerStyle={{ width: "400px", marginBottom: "5px" }}
             />
-          </div>
-        )}
+          )}
+        </div>
         <Button
           onClick={toggleEmojiPicker}
           type="ghost"
