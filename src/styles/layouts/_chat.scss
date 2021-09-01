@@ -36,6 +36,7 @@
 
   &__dialog {
     flex: 1;
+    position: relative;
     &-header {
       background-color: #ffffff;
       display: flex;
@@ -67,5 +68,12 @@
         transform: translate(-50%, -50%);
       }
     }
+  }
+
+  &__no-dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }

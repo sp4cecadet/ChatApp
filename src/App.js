@@ -6,10 +6,6 @@ import { Route, Redirect, Switch } from "react-router-dom";
 const App = (props) => {
   const { isAuth } = props;
 
-  //   if (localStorage.token) {
-  //     store.dispatch(setUser(localStorage.token));
-  //   }
-
   return (
     <div className="wrapper">
       <Switch>

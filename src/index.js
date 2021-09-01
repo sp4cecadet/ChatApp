@@ -10,6 +10,10 @@ import store from "redux/store";
 
 import "./styles/index.scss";
 
+if (localStorage.token) {
+  store.dispatch(userActions.setUserData(localStorage.token));
+}
+
 store.dispatch(userActions.fetchUserData());
 
 ReactDOM.render(
