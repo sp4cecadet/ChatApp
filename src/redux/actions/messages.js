@@ -33,9 +33,9 @@ const actions = {
   },
 
   fetchSendMessage:
-    ({ text, dialogId }) =>
+    ({ text, dialogId, attachments }) =>
     (dispatch) => {
-      return messagesAPI.send(text, dialogId);
+      return messagesAPI.send(text, dialogId, attachments);
     },
 
   fetchMessages: (dialogId) => (dispatch) => {
