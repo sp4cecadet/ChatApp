@@ -17,10 +17,12 @@ const getMessageDate = (createdAt) => {
 
 const renderLastMessage = (message, userId) => {
   let text = "";
-  if (!message.text && message.attachments.length) {
-    text = "прикрепленный файл";
-  } else {
+  if (message.text) {
     text = message.text;
+  } else if (message.attachments.length === 1) {
+    text = "прикрепленный файл";
+  } else if (message.attachments.length > 1) {
+    text = "прикрепленные файлы";
   }
 
   return `${message.sender === userId ? "Вы: " : ""}${text}`;

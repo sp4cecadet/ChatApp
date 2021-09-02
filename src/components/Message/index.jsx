@@ -81,6 +81,17 @@ const Message = ({
   createdAt,
   onRemoveMessage,
 }) => {
+  const renderAttachment = (item) => {
+    console.log(item);
+    if (item.ext !== "webm") {
+      return (
+        <div key={item._id} className="message__attachments-item">
+          <img src={item.url} alt={item.filename} />
+        </div>
+      );
+    }
+  };
+
   return (
     <div
       className={cn("message", {
@@ -111,17 +122,7 @@ const Message = ({
 
           {attachments && (
             <div className="message__attachments">
-              {attachments.map((item) => (
-                <div
-                  key={
-                    Math.floor(Math.random() * 1111111) *
-                    Math.floor(Math.random() * 1111111)
-                  }
-                  className="message__attachments-item"
-                >
-                  <img src={item.url} alt={item.filename} />
-                </div>
-              ))}
+              {attachments.map((item) => renderAttachment(item))}
             </div>
           )}
         </div>
@@ -129,7 +130,9 @@ const Message = ({
           content={
             isMine && (
               <div>
-                <Button onClick={onRemoveMessage}>Удалить сообщение</Button>
+                <Button className="message__action" onClick={onRemoveMessage}>
+                  Удалить сообщение
+                </Button>
               </div>
             )
           }

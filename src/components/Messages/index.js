@@ -12,18 +12,18 @@ const Messages = ({
   isLoading,
   userId,
   sender,
-  attachments,
   currentDialogId,
   items,
   isTyping,
   partner,
   previewImage,
   setPreviewImage,
+  blockHeight,
 }) => {
   return (
     <div
       className="chat__dialog-messages"
-      style={{ height: `calc(100% - 250px)` }}
+      style={{ height: `calc(100% - ${blockHeight}px)` }}
     >
       <div ref={blockRef} className="messages">
         {isLoading ? (

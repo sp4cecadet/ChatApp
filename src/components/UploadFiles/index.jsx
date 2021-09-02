@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Upload, Modal } from "antd";
 
+import "./UploadFiles.scss";
+
 const getBase64 = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();

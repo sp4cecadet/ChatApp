@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import find from "lodash/find";
 import { Messages as BaseMessages } from "components/";
@@ -14,8 +14,10 @@ const Messages = ({
   user,
   isLoading,
   removeMessage,
+  attachments,
 }) => {
   const messagesRef = useRef(null);
+  const [blockHeight, setBlockHeight] = useState(135);
 
   const onNewMessage = (data) => {
     addMessage(data);
@@ -35,6 +37,14 @@ const Messages = ({
     return () => socket.removeListener("SERVER:NEW_MESSAGE", onNewMessage);
   }, [items]);
 
+  useEffect(() => {
+    if (attachments.length) {
+      setBlockHeight(255);
+    } else {
+      setBlockHeight(135);
+    }
+  }, [attachments]);
+
   return (
     <BaseMessages
       blockRef={messagesRef}
@@ -44,15 +54,17 @@ const Messages = ({
       userId={userId}
       onRemoveMessage={removeMessage}
       currentDialogId={currentDialog?._id}
+      blockHeight={blockHeight}
     />
   );
 };
 
 export default connect(
-  ({ dialogs, messages, user }) => ({
+  ({ dialogs, messages, user, attachments }) => ({
     currentDialog: find(dialogs.items, { _id: dialogs.currentDialogId }),
     items: messages.items,
     isLoading: messages.isLoading,
+    attachments: attachments.items,
     user: user.data,
   }),
   messagesActions
