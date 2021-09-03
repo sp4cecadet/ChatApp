@@ -44,6 +44,7 @@ const ChatInput = ({
     };
 
     recorder.ondataavailable = (e) => {
+      console.log(recorder.stream);
       const file = new File([e.data], "audio.webm");
       setLoading(true);
       filesAPI.upload(file).then(({ data }) => {
@@ -81,6 +82,9 @@ const ChatInput = ({
   };
 
   const sendMessage = () => {
+    if (isRecording) {
+      mediaRecorder.stop();
+    }
     if (text.length || attachments.length) {
       fetchSendMessage({
         text,
@@ -127,10 +131,6 @@ const ChatInput = ({
       });
     }
     setAttachments(uploaded);
-  };
-
-  const handleStartRecording = () => {
-    setIsRecording(true);
   };
 
   const handleStopRecording = () => {

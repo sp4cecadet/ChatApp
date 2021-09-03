@@ -38,6 +38,7 @@ const Messages = ({
                 isMine={item.sender._id === userId}
                 attachments={item.attachments}
                 onRemoveMessage={onRemoveMessage.bind(this, item._id)}
+                setPreviewImage={setPreviewImage}
                 {...item}
               />
             );
@@ -47,7 +48,7 @@ const Messages = ({
         )}
         {isTyping && <Message isTyping={true} user={partner} />}
         <Modal
-          visible={!!previewImage}
+          visible={previewImage}
           onCancel={() => setPreviewImage(null)}
           footer={null}
         >

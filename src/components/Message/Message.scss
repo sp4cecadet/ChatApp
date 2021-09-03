@@ -74,7 +74,7 @@
     }
     #{$self}__bubble {
       position: relative;
-      width: 250px;
+      width: 200px;
       overflow: hidden;
     }
     #{$self}__audio {
@@ -97,12 +97,7 @@
           }
         }
       }
-      &-duration {
-        color: #ffffff;
-        font-weight: 500;
-        opacity: 0.5;
-        font-size: 12px;
-      }
+
       &-progress {
         height: 100%;
         left: 0;
@@ -110,6 +105,12 @@
         position: absolute;
         background-color: #418fff;
         transition: width 250ms ease;
+      }
+
+      &-wave {
+        svg {
+          fill: #ffffff;
+        }
       }
     }
   }
@@ -153,6 +154,42 @@
 
     #{$self}__attachments {
       justify-content: flex-end;
+    }
+
+    #{$self}__audio {
+      &-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &-btn {
+        button {
+          cursor: pointer;
+          border: 0;
+          width: 28px;
+          height: 28px;
+          border-radius: 30px;
+          background: #0f3997;
+          img {
+            height: 13px;
+          }
+        }
+      }
+
+      &-progress {
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background-color: #418fff;
+        transition: width 250ms ease;
+      }
+      &-wave {
+        svg {
+          fill: #000000;
+        }
+      }
     }
   }
 
