@@ -8,7 +8,6 @@
     "@ctrl/tinycolor": "^3.4.0",
     "@navjobs/upload": "^3.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
-    "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -40,10 +39,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.9.2",
     "eslint-webpack-plugin": "^2.5.2",
-    "file-loader": "6.1.1",
     "formik": "^2.2.9",
     "formik-antd": "^2.0.1",
     "fs-extra": "^9.0.1",
+    "get-audio-duration": "^3.0.0",
     "html-webpack-plugin": "4.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.0",
@@ -173,5 +172,8 @@
       "react-app"
     ]
   },
-  "proxy": "http://localhost:3003/"
+  "proxy": "http://localhost:3003/",
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
 }
