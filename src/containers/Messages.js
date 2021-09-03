@@ -16,8 +16,10 @@ const Messages = ({
   removeMessage,
   attachments,
 }) => {
-  const messagesRef = useRef(null);
   const [blockHeight, setBlockHeight] = useState(135);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const messagesRef = useRef(null);
 
   const onNewMessage = (data) => {
     addMessage(data);
@@ -55,6 +57,8 @@ const Messages = ({
       onRemoveMessage={removeMessage}
       currentDialogId={currentDialog?._id}
       blockHeight={blockHeight}
+      previewImage={previewImage}
+      setPreviewImage={setPreviewImage}
     />
   );
 };
