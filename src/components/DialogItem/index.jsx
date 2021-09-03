@@ -20,9 +20,12 @@ const renderLastMessage = (message, userId) => {
   if (message.text) {
     text = message.text;
   } else if (message.attachments.length === 1) {
-    text = "прикрепленный файл";
+    text =
+      message.attachments[0].ext === "webm"
+        ? "аудиосообщение"
+        : "прикреплённый файл";
   } else if (message.attachments.length > 1) {
-    text = "прикрепленные файлы";
+    text = "прикреплённые файлы";
   }
 
   return `${message.sender === userId ? "Вы: " : ""}${text}`;
