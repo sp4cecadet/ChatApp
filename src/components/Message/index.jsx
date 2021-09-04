@@ -68,10 +68,11 @@ const AudioMessage = ({ audio }) => {
 const Message = ({
   text,
   readed,
-  sender,
+  partner,
   userId,
   attachments,
   isMine,
+  isTyping,
   createdAt,
   onRemoveMessage,
   setPreviewImage,
@@ -94,18 +95,18 @@ const Message = ({
     <div
       className={cn("message", {
         "message--mine": isMine,
-        // "message--is-typing": isTyping,
+        "message--is-typing": isTyping,
         "message--image":
           attachments && !isAudio(attachments) && attachments.length === 1,
         "message--audio": isAudio(attachments),
       })}
     >
       <div className="message__avatar">
-        <Avatar user={sender} />
+        <Avatar user={partner} />
       </div>
       <div className="message__content">
         <div className="message__info">
-          {(text || isAudio(attachments)) && (
+          {(isTyping || isAudio(attachments) || text) && (
             <div className="message__bubble">
               {text && <p className="message__text">{text}</p>}
 
@@ -113,13 +114,13 @@ const Message = ({
                 <AudioMessage audio={attachments[0]} />
               )}
 
-              {/* {status.isTyping && (
+              {!text && !isAudio(attachments) && isTyping && (
                 <div className="message__typing">
                   <span />
                   <span />
                   <span />
                 </div>
-              )} */}
+              )}
             </div>
           )}
           {attachments && (
@@ -142,7 +143,7 @@ const Message = ({
           trigger="click"
         >
           <div className="message__status">
-            <IconReaded isMine={isMine} isReaded={readed} />
+            {!isTyping && <IconReaded isMine={isMine} isReaded={readed} />}
             {createdAt && (
               <span className="message__date">
                 {createdAt && <Time date={createdAt} />}

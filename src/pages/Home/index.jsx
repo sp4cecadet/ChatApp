@@ -10,7 +10,6 @@ import { dialogsActions } from "redux/actions";
 
 const Home = (props) => {
   const { currentDialogId, setCurrentDialogId, user, dialogs } = props;
-
   const currentDialogObj = dialogs.filter(
     (dialog) => dialog._id === currentDialogId
   )[0];

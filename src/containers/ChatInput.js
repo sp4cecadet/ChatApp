@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { messagesActions, attachmentsActions } from "redux/actions";
 import { filesAPI } from "utils/api";
+import socket from "core/socket";
 
 const ChatInput = ({
   fetchSendMessage,
@@ -11,6 +12,7 @@ const ChatInput = ({
   attachments,
   setAttachments,
   undoFileUpload,
+  user,
 }) => {
   window.navigator.getUserMedia =
     window.navigator.getUserMedia ||
@@ -98,6 +100,10 @@ const ChatInput = ({
   };
 
   const handleKeyboardEvent = (e) => {
+    socket.emit("DIALOGS:TYPING", {
+      dialogId: currentDialogId,
+      user,
+    });
     if (e.code === "Enter" || e.code === "NumpadEnter") {
       sendMessage();
     }
