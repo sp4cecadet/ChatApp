@@ -6,7 +6,7 @@ import { Time, IconReaded, Avatar } from "components/";
 import { ReactComponent as WaveComponent } from "assets/img/wave.svg";
 import playSvg from "assets/img/play.svg";
 import pauseSvg from "assets/img/pause.svg";
-import { convertCurrentTime, isAudio } from "utils/helpers/";
+import { isAudio } from "utils/helpers/";
 
 import "./Message.scss";
 
@@ -19,7 +19,7 @@ const AudioMessage = ({ audio }) => {
   const audioElem = useRef(null);
 
   const togglePlay = () => {
-    audioElem.current.volume = "0.05";
+    audioElem.current.volume = "0.5";
 
     if (!isPlaying) {
       setIsPlaying(true);

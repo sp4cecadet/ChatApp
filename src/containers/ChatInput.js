@@ -164,6 +164,7 @@ const ChatInput = ({
       handleStopRecording={handleStopRecording}
       isRecording={isRecording}
       removeAttachment={undoFileUpload}
+      isLoading={isLoading}
     />
   );
 };

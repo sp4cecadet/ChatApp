@@ -7,6 +7,7 @@ import {
   AudioOutlined,
   SendOutlined,
   DeleteOutlined,
+  LoadingOutlined,
 } from "@ant-design/icons";
 
 import { UploadField } from "@navjobs/upload";
@@ -30,6 +31,7 @@ const ChatInput = (props) => {
     onUploadFiles,
     handleStartRecording,
     isRecording,
+    isLoading,
     handleStopRecording,
   } = props;
 
@@ -104,7 +106,7 @@ const ChatInput = (props) => {
               type="ghost"
               shape="circle"
               onClick={sendMessage}
-              icon={<SendOutlined />}
+              icon={isLoading ? <LoadingOutlined /> : <SendOutlined />}
             />
           ) : (
             <div className="chat-input__record-btn">
@@ -112,7 +114,7 @@ const ChatInput = (props) => {
                 type="ghost"
                 shape="circle"
                 onClick={handleStartRecording}
-                icon={<AudioOutlined />}
+                icon={isLoading ? <LoadingOutlined /> : <AudioOutlined />}
               />
             </div>
           )}
