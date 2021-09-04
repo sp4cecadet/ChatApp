@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { EllipsisOutlined } from "@ant-design/icons";
 
 import "./Status.scss";
 
@@ -15,7 +14,7 @@ const Status = ({ online, fullname }) => (
         </span>
       </div>
     </div>
-    <EllipsisOutlined style={{ fontSize: 24 }} />
+    <div />
   </div>
 );
 
