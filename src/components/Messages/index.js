@@ -10,11 +10,10 @@ const Messages = ({
   onRemoveMessage,
   blockRef,
   isLoading,
+  isTyping,
   userId,
-  sender,
   currentDialogId,
   items,
-  isTyping,
   partner,
   previewImage,
   setPreviewImage,
@@ -35,6 +34,7 @@ const Messages = ({
             return (
               <Message
                 key={item._id}
+                partner={partner}
                 isMine={item.sender._id === userId}
                 attachments={item.attachments}
                 onRemoveMessage={onRemoveMessage.bind(this, item._id)}
@@ -46,7 +46,7 @@ const Messages = ({
         ) : (
           currentDialogId && <Empty description="Начните диалог" />
         )}
-        {isTyping && <Message isTyping={true} user={partner} />}
+        {isTyping && <Message isTyping={isTyping} partner={partner} />}
         <Modal
           visible={previewImage}
           onCancel={() => setPreviewImage(null)}

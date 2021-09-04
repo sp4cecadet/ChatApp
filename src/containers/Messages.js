@@ -18,12 +18,26 @@ const Messages = ({
 }) => {
   const [blockHeight, setBlockHeight] = useState(135);
   const [previewImage, setPreviewImage] = useState(null);
+  const [isTyping, setIsTyping] = useState(false);
+  let typingTimeoutId = null;
 
   const messagesRef = useRef(null);
 
   const onNewMessage = (data) => {
     addMessage(data);
   };
+
+  const toggleIsTyping = () => {
+    setIsTyping(true);
+    clearInterval(typingTimeoutId);
+    typingTimeoutId = setTimeout(() => {
+      setIsTyping(false);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    socket.on("DIALOGS:TYPING", toggleIsTyping);
+  }, []);
 
   useEffect(() => {
     if (currentDialog) {
@@ -52,6 +66,7 @@ const Messages = ({
       blockRef={messagesRef}
       items={items}
       isLoading={isLoading}
+      isTyping={isTyping}
       user={user}
       userId={userId}
       onRemoveMessage={removeMessage}
@@ -59,6 +74,11 @@ const Messages = ({
       blockHeight={blockHeight}
       previewImage={previewImage}
       setPreviewImage={setPreviewImage}
+      partner={
+        user._id !== currentDialog.partner._id
+          ? currentDialog.author
+          : currentDialog.partner
+      }
     />
   );
 };
