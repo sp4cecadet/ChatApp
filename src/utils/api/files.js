@@ -10,4 +10,5 @@ export default {
       },
     });
   },
+  delete: (file) => axios.delete("/file?id=" + file.uid),
 };
