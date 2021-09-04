@@ -67,7 +67,7 @@ const Sidebar = ({
         ]}
       >
         <Form className="add-dialog-form">
-          <Form.Item label="Введите имя пользователя или E-Mail">
+          <Form.Item label="Введите имя пользователя">
             <Select
               value={inputValue}
               onSearch={onSearch}
@@ -78,7 +78,7 @@ const Sidebar = ({
               defaultActiveFirstOption={false}
               showArrow={false}
               filterOption={false}
-              placeholder="Введите имя пользователя или почту"
+              placeholder="Введите имя пользователя"
               showSearch
             >
               {options}

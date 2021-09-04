@@ -10,6 +10,7 @@ const ChatInput = ({
   currentDialogId,
   attachments,
   setAttachments,
+  undoFileUpload,
 }) => {
   window.navigator.getUserMedia =
     window.navigator.getUserMedia ||
@@ -162,6 +163,7 @@ const ChatInput = ({
       handleStartRecording={onRecord}
       handleStopRecording={handleStopRecording}
       isRecording={isRecording}
+      removeAttachment={undoFileUpload}
     />
   );
 };
