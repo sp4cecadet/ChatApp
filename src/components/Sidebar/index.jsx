@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TeamOutlined, FormOutlined } from "@ant-design/icons";
+import { UserOutlined, FormOutlined } from "@ant-design/icons";
 import { Button, Modal, Select, Input, Form } from "antd";
 
 import "./Sidebar.scss";
@@ -33,9 +33,14 @@ const Sidebar = ({
     <div className="chat__contacts">
       <div className="chat__contacts-header">
         <div>
-          <TeamOutlined />
-          <span>Список диалогов</span>
+          <Button
+            onClick={onShow}
+            type="link"
+            shape="circle"
+            icon={<UserOutlined />}
+          />
         </div>
+        <span>Список диалогов</span>
         <Button
           onClick={onShow}
           type="link"

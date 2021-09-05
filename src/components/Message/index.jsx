@@ -6,7 +6,7 @@ import { Time, IconReaded, Avatar } from "components/";
 import { ReactComponent as WaveComponent } from "assets/img/wave.svg";
 import playSvg from "assets/img/play.svg";
 import pauseSvg from "assets/img/pause.svg";
-import { isAudio } from "utils/helpers/";
+import { isAudio, convertCurrentTime } from "utils/helpers/";
 
 import "./Message.scss";
 
@@ -16,6 +16,7 @@ const AudioMessage = ({ audio }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(audio.duration);
   const audioElem = useRef(null);
 
   const togglePlay = () => {
@@ -31,15 +32,17 @@ const AudioMessage = ({ audio }) => {
   };
 
   useEffect(() => {
-    audioElem.current.addEventListener("ended", () => {
+    audioElem?.current?.addEventListener("loadeddata", () => {
+      setCurrentTime(duration);
+    });
+    audioElem?.current?.addEventListener("ended", () => {
       setIsPlaying(false);
       setCurrentTime(0);
       setProgress(0);
     });
-    audioElem.current.addEventListener("timeupdate", () => {
-      const duration = (audioElem.current && audioElem.current.duration) || 0;
-      setCurrentTime(duration - audioElem.current.currentTime);
-      setProgress((audioElem.current.currentTime / duration) * 100);
+    audioElem?.current?.addEventListener("timeupdate", (event) => {
+      setCurrentTime(duration - audioElem?.current?.currentTime);
+      setProgress((audioElem?.current?.currentTime / duration) * 100);
     });
   }, []);
 
@@ -59,7 +62,9 @@ const AudioMessage = ({ audio }) => {
         <div className="message__audio-wave">
           <WaveComponent />
         </div>
-        <div />
+        <span className="message__audio-duration">
+          {convertCurrentTime(currentTime)}
+        </span>
       </div>
     </div>
   );
@@ -69,7 +74,6 @@ const Message = ({
   text,
   readed,
   partner,
-  userId,
   attachments,
   isMine,
   isTyping,

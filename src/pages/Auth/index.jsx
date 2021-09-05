@@ -16,7 +16,7 @@ const Auth = () => {
         <Route exact path="/signup">
           <RegisterForm />
         </Route>
-        <Route exact path="/signup/verify">
+        <Route exact path="/user/verify">
           <CheckValidationStatus />
         </Route>
       </div>

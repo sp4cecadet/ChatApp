@@ -102,19 +102,25 @@ const ChatInput = (props) => {
           )}
 
           {isRecording || attachments.length || text ? (
-            <Button
-              type="ghost"
-              shape="circle"
-              onClick={sendMessage}
-              icon={isLoading ? <LoadingOutlined /> : <SendOutlined />}
-            />
+            isLoading ? (
+              <LoadingOutlined />
+            ) : (
+              <Button
+                type="ghost"
+                shape="circle"
+                onClick={sendMessage}
+                icon={<SendOutlined />}
+              />
+            )
+          ) : isLoading ? (
+            <LoadingOutlined />
           ) : (
             <div className="chat-input__record-btn">
               <Button
                 type="ghost"
                 shape="circle"
                 onClick={handleStartRecording}
-                icon={isLoading ? <LoadingOutlined /> : <AudioOutlined />}
+                icon={<AudioOutlined />}
               />
             </div>
           )}

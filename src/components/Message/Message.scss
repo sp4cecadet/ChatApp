@@ -72,10 +72,12 @@
     audio {
       display: none;
     }
+
     #{$self}__bubble {
       position: relative;
-      width: 200px;
+      width: 250px;
       overflow: hidden;
+      border: none;
     }
     #{$self}__audio {
       &-info {
@@ -112,12 +114,17 @@
           fill: #ffffff;
         }
       }
+
+      &-duration {
+        color: #ffffff;
+      }
     }
   }
 
   &--mine {
     display: flex;
     flex-direction: row-reverse;
+    color: #000000;
 
     #{$self}__content {
       margin-bottom: 15px;
@@ -189,6 +196,9 @@
         svg {
           fill: #000000;
         }
+      }
+      &-duration {
+        color: #000000;
       }
     }
   }

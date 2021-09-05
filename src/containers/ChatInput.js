@@ -47,7 +47,6 @@ const ChatInput = ({
     };
 
     recorder.ondataavailable = (e) => {
-      console.log(recorder.stream);
       const file = new File([e.data], "audio.webm");
       setLoading(true);
       filesAPI.upload(file).then(({ data }) => {
@@ -85,6 +84,7 @@ const ChatInput = ({
   };
 
   const sendMessage = () => {
+    setLoading(true);
     if (isRecording) {
       mediaRecorder.stop();
     }
@@ -96,6 +96,7 @@ const ChatInput = ({
       });
       setText("");
       setAttachments([]);
+      setLoading(false);
     }
   };
 
@@ -110,6 +111,8 @@ const ChatInput = ({
   };
 
   const onUploadFiles = async (files) => {
+    setLoading(true);
+
     let uploaded = [];
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -138,6 +141,7 @@ const ChatInput = ({
       });
     }
     setAttachments(uploaded);
+    setLoading(false);
   };
 
   const handleStopRecording = () => {
