@@ -21,6 +21,11 @@ const actions = {
     payload: bool,
   }),
 
+  updateReadedStatus: (dialogId) => ({
+    type: "MESSAGES:MESSAGES_READED",
+    payload: dialogId,
+  }),
+
   removeMessage: (id) => (dispatch) => {
     messagesAPI
       .removeById(id)

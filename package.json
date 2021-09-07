@@ -8,6 +8,7 @@
     "@ctrl/tinycolor": "^3.4.0",
     "@navjobs/upload": "^3.2.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

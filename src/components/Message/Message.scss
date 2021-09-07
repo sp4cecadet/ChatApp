@@ -3,8 +3,8 @@
 .message {
   $self: &;
   display: flex;
-  width: 100%;
   margin-bottom: 25px;
+
   &__avatar {
     position: relative;
     margin-top: 25px;
@@ -29,7 +29,7 @@
 
   &__content {
     position: relative;
-
+    max-width: 45%;
     #{$self}__status {
       position: absolute;
       display: flex;

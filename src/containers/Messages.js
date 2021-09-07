@@ -20,16 +20,17 @@ const Messages = ({
   const [previewImage, setPreviewImage] = useState(null);
   const [isTyping, setIsTyping] = useState(false);
   let typingTimeoutId = null;
-
   const messagesRef = useRef(null);
 
   const onNewMessage = (data) => {
     addMessage(data);
+    clearTimeout(typingTimeoutId);
+    setIsTyping(false);
   };
 
   const toggleIsTyping = () => {
     setIsTyping(true);
-    clearInterval(typingTimeoutId);
+    clearTimeout(typingTimeoutId);
     typingTimeoutId = setTimeout(() => {
       setIsTyping(false);
     }, 3000);
@@ -43,13 +44,14 @@ const Messages = ({
     if (currentDialog) {
       fetchMessages(currentDialog._id);
     }
+    clearTimeout(typingTimeoutId);
+    setIsTyping(false);
   }, [currentDialog?._id]);
 
   useEffect(() => {
     messagesRef.current.scrollTo(0, messagesRef.current.scrollHeight);
 
     socket.on("SERVER:NEW_MESSAGE", onNewMessage);
-
     return () => socket.removeListener("SERVER:NEW_MESSAGE", onNewMessage);
   }, [items]);
 
@@ -75,7 +77,7 @@ const Messages = ({
       previewImage={previewImage}
       setPreviewImage={setPreviewImage}
       partner={
-        user._id !== currentDialog.partner._id
+        userId === currentDialog.partner._id
           ? currentDialog.author
           : currentDialog.partner
       }

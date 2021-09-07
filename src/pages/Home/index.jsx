@@ -17,8 +17,8 @@ const Home = (props) => {
   useEffect(() => {
     const { pathname } = props.location;
     const dialogId = pathname.split("/").pop();
-    setCurrentDialogId(dialogId);
-  }, [props.location, props.location.pathname, setCurrentDialogId]);
+    setCurrentDialogId(currentDialogId, dialogId);
+  }, [props.location.pathname]);
 
   return (
     <section className="home">

@@ -12,9 +12,8 @@ import "./styles/index.scss";
 
 if (localStorage.token) {
   store.dispatch(userActions.setUserData(localStorage.token));
+  store.dispatch(userActions.fetchUserData());
 }
-
-store.dispatch(userActions.fetchUserData());
 
 ReactDOM.render(
   <Provider store={store}>

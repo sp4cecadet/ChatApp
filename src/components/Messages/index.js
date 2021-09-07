@@ -12,6 +12,7 @@ const Messages = ({
   isLoading,
   isTyping,
   userId,
+  currentDialog,
   currentDialogId,
   items,
   partner,
@@ -34,7 +35,7 @@ const Messages = ({
             return (
               <Message
                 key={item._id}
-                partner={partner}
+                sender={item.sender}
                 isMine={item.sender._id === userId}
                 attachments={item.attachments}
                 onRemoveMessage={onRemoveMessage.bind(this, item._id)}
@@ -46,7 +47,7 @@ const Messages = ({
         ) : (
           currentDialogId && <Empty description="Начните диалог" />
         )}
-        {isTyping && <Message isTyping={isTyping} partner={partner} />}
+        {isTyping && <Message isTyping={isTyping} sender={partner} />}
         <Modal
           visible={previewImage}
           onCancel={() => setPreviewImage(null)}

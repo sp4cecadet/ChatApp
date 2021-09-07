@@ -1,22 +1,36 @@
 import { dialogsAPI } from "utils/api";
 import socket from "core/socket";
 
+import { messagesActions } from "./";
+
 const actions = {
   setDialogs: (items) => ({
     type: "DIALOGS:SET_ITEMS",
     payload: items,
   }),
 
-  setCurrentDialogId: (id) => (dispatch) => {
-    socket.emit("DIALOGS:JOIN", id);
+  updateReadedStatus:
+    ({ dialogId }) =>
+    (dispatch) => {
+      dispatch(messagesActions.updateReadedStatus(dialogId));
+      dispatch({
+        type: "DIALOGS:LAST_MESSAGE_READED_STATUS",
+        payload: {
+          dialogId,
+        },
+      });
+    },
+  setCurrentDialogId: (currentDialogId, newDialogId) => (dispatch) => {
+    socket.emit("DIALOGS:JOIN", currentDialogId, newDialogId);
     dispatch({
       type: "DIALOGS:SET_CURRENT_DIALOG_ID",
-      payload: id,
+      payload: newDialogId,
     });
   },
 
   fetchDialogs: () => (dispatch) => {
     dialogsAPI.getAll().then(({ data }) => {
+      socket.emit("USER:JOINED", data);
       dispatch(actions.setDialogs(data));
     });
   },

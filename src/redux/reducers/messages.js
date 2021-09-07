@@ -16,7 +16,7 @@ export default (state = initialState, { type, payload }) => {
         items: payload,
         isLoading: false,
       };
-    case "DIALOGS:LAST_MESSAGE_READED_STATUS":
+    case "MESSAGES:MESSAGES_READED":
       return {
         ...state,
         items: state.items.map((message) => {

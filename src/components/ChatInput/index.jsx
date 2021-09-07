@@ -79,7 +79,7 @@ const ChatInput = (props) => {
             size="large"
             placeholder="Введите текст сообщения..."
             value={text}
-            onKeyUp={(e) => {
+            onKeyDown={(e) => {
               handleKeyboardEvent(e);
             }}
             onChange={(e) => setText(e.target.value)}

@@ -58,11 +58,7 @@ const LoginForm = (props) => {
               placeholder="E-mail"
             />
           </Form.Item>
-          <Form.Item
-            hasFeedback
-            validateStatus={validateField("email", touched, errors)}
-            help={errors.password}
-          >
+          <Form.Item hasFeedback>
             <Input
               id="password"
               prefix={<LockOutlined className="site-form-item-icon" />}

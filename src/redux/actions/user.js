@@ -1,5 +1,4 @@
 import { userAPI } from "utils/api";
-
 import { showNotification } from "utils/helpers";
 
 const actions = {
@@ -20,7 +19,7 @@ const actions = {
         dispatch(actions.setUserData(data));
       })
       .catch((err) => {
-        if (err?.response?.status === 403) {
+        if (err?.response?.status === 404) {
           dispatch(actions.setIsAuth(false));
           delete window.localStorage.token;
         }

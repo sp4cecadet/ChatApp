@@ -73,7 +73,7 @@ const AudioMessage = ({ audio }) => {
 const Message = ({
   text,
   readed,
-  partner,
+  sender,
   attachments,
   isMine,
   isTyping,
@@ -106,7 +106,7 @@ const Message = ({
       })}
     >
       <div className="message__avatar">
-        <Avatar user={partner} />
+        <Avatar user={sender} />
       </div>
       <div className="message__content">
         <div className="message__info">

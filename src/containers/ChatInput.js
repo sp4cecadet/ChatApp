@@ -19,7 +19,6 @@ const ChatInput = ({
     window.navigator.mozGetUserMedia ||
     window.navigator.msGetUserMedia ||
     window.navigator.webkitGetUserMedia;
-
   const [text, setText] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [emojiPickerVisible, setEmojiPickerVisible] = useState(false);
@@ -101,10 +100,11 @@ const ChatInput = ({
   };
 
   const handleKeyboardEvent = (e) => {
-    socket.emit("DIALOGS:TYPING", {
-      dialogId: currentDialogId,
-      user,
-    });
+    if (String.fromCharCode(e.keyCode).match(/(\w|\s|\d)/g)) {
+      socket.emit("KEYBOARD:KEY_PRESSED", {
+        dialogId: currentDialogId,
+      });
+    }
     if (e.code === "Enter" || e.code === "NumpadEnter") {
       sendMessage();
     }
