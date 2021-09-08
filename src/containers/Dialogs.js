@@ -41,13 +41,13 @@ const Dialogs = ({
     socket.on("SERVER:DIALOG_CREATED", fetchDialogs);
     socket.on("SERVER:NEW_MESSAGE", fetchDialogs);
     socket.on("SERVER:MESSAGE_REMOVED", fetchDialogs);
-    socket.on("SERVER:MESSAGES_READED", updateReadedStatus);
+    socket.on("SERVER:MESSAGES_READED", fetchDialogs);
 
     return () => {
       socket.removeListener("SERVER:DIALOG_CREATED", fetchDialogs);
       socket.removeListener("SERVER:NEW_MESSAGE", fetchDialogs);
       socket.removeListener("SERVER:MESSAGE_REMOVED", fetchDialogs);
-      socket.removeListener("SERVER:MESSAGES_READED", updateReadedStatus);
+      socket.removeListener("SERVER:MESSAGES_READED", fetchDialogs);
     };
   }, []);
 

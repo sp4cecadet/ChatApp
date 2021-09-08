@@ -20,8 +20,8 @@ const actions = {
         },
       });
     },
-  setCurrentDialogId: (currentDialogId, newDialogId) => (dispatch) => {
-    socket.emit("DIALOGS:JOIN", currentDialogId, newDialogId);
+  setCurrentDialogId: (userId, currentDialogId, newDialogId) => (dispatch) => {
+    socket.emit("DIALOGS:JOIN", userId, currentDialogId, newDialogId);
     dispatch({
       type: "DIALOGS:SET_CURRENT_DIALOG_ID",
       payload: newDialogId,
@@ -30,7 +30,6 @@ const actions = {
 
   fetchDialogs: () => (dispatch) => {
     dialogsAPI.getAll().then(({ data }) => {
-      socket.emit("USER:JOINED", data);
       dispatch(actions.setDialogs(data));
     });
   },

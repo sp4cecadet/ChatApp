@@ -103,6 +103,7 @@ const ChatInput = ({
     if (String.fromCharCode(e.keyCode).match(/(\w|\s|\d)/g)) {
       socket.emit("KEYBOARD:KEY_PRESSED", {
         dialogId: currentDialogId,
+        userId: user._id,
       });
     }
     if (e.code === "Enter" || e.code === "NumpadEnter") {

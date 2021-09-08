@@ -24,6 +24,7 @@ const Messages = ({
 
   const onNewMessage = (data) => {
     addMessage(data);
+
     clearTimeout(typingTimeoutId);
     setIsTyping(false);
   };
@@ -43,6 +44,11 @@ const Messages = ({
   useEffect(() => {
     if (currentDialog) {
       fetchMessages(currentDialog._id);
+
+      socket.emit("MESSAGES:FETCHED", {
+        userId: userId,
+        dialogId: currentDialog._id,
+      });
     }
     clearTimeout(typingTimeoutId);
     setIsTyping(false);

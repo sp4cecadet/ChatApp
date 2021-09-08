@@ -5,6 +5,7 @@ import { Empty } from "antd";
 
 import "./Home.scss";
 import { Messages, ChatInput, Status, Sidebar } from "containers/";
+import socket from "core/socket";
 
 import { dialogsActions } from "redux/actions";
 
@@ -17,7 +18,7 @@ const Home = (props) => {
   useEffect(() => {
     const { pathname } = props.location;
     const dialogId = pathname.split("/").pop();
-    setCurrentDialogId(currentDialogId, dialogId);
+    user?._id && setCurrentDialogId(user._id, currentDialogId, dialogId);
   }, [props.location.pathname]);
 
   return (

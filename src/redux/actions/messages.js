@@ -21,10 +21,11 @@ const actions = {
     payload: bool,
   }),
 
-  updateReadedStatus: (dialogId) => ({
-    type: "MESSAGES:MESSAGES_READED",
-    payload: dialogId,
-  }),
+  updateReadedStatus: (dialogId) => (dispatch, getState) => {
+    const { user } = getState();
+
+    dispatch({ type: "MESSAGES:MESSAGES_READED", payload: { dialogId, user } });
+  },
 
   removeMessage: (id) => (dispatch) => {
     messagesAPI
