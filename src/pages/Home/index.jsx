@@ -10,7 +10,8 @@ import socket from "core/socket";
 import { dialogsActions } from "redux/actions";
 
 const Home = (props) => {
-  const { currentDialogId, setCurrentDialogId, user, dialogs } = props;
+  const { currentDialogId, setCurrentDialogId, user, dialogs, messages } =
+    props;
   const currentDialogObj = dialogs.filter(
     (dialog) => dialog._id === currentDialogId
   )[0];
@@ -20,6 +21,15 @@ const Home = (props) => {
     const dialogId = pathname.split("/").pop();
     user?._id && setCurrentDialogId(user._id, currentDialogId, dialogId);
   }, [props.location.pathname]);
+
+  useEffect(() => {
+    user?._id &&
+      currentDialogId &&
+      socket.emit("MESSAGES:FETCHED", {
+        userId: user._id,
+        dialogId: currentDialogId,
+      });
+  }, [messages.length]);
 
   return (
     <section className="home">
@@ -50,7 +60,8 @@ const Home = (props) => {
 
 export default withRouter(
   connect(
-    ({ user, dialogs }) => ({
+    ({ user, dialogs, messages }) => ({
+      messages: messages.items,
       dialogs: dialogs.items,
       user: user.data,
       currentDialogId: dialogs.currentDialogId,

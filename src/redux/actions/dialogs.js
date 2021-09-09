@@ -9,17 +9,14 @@ const actions = {
     payload: items,
   }),
 
-  updateReadedStatus:
-    ({ dialogId }) =>
-    (dispatch) => {
-      dispatch(messagesActions.updateReadedStatus(dialogId));
-      dispatch({
-        type: "DIALOGS:LAST_MESSAGE_READED_STATUS",
-        payload: {
-          dialogId,
-        },
-      });
-    },
+  updateReadedStatus: (dialogId) => (dispatch) => {
+    dispatch(messagesActions.updateReadedStatus(dialogId));
+
+    dispatch({
+      type: "DIALOGS:LAST_MESSAGE_READED_STATUS",
+      payload: dialogId,
+    });
+  },
   setCurrentDialogId: (userId, currentDialogId, newDialogId) => (dispatch) => {
     socket.emit("DIALOGS:JOIN", userId, currentDialogId, newDialogId);
     dispatch({

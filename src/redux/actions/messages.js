@@ -21,10 +21,8 @@ const actions = {
     payload: bool,
   }),
 
-  updateReadedStatus: (dialogId) => (dispatch, getState) => {
-    const { user } = getState();
-
-    dispatch({ type: "MESSAGES:MESSAGES_READED", payload: { dialogId, user } });
+  updateReadedStatus: (dialogId) => (dispatch) => {
+    dispatch({ type: "MESSAGES:MESSAGES_READED", payload: dialogId });
   },
 
   removeMessage: (id) => (dispatch) => {

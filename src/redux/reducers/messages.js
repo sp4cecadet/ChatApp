@@ -20,10 +20,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         items: state.items.map((message) => {
-          if (
-            message.dialog._id === payload.dialogId &&
-            message.sender._id === payload.user.data._id
-          ) {
+          if (message.dialog._id === payload.dialogId) {
             message.readed = true;
           }
           return message;
