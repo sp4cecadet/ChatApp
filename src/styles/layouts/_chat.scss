@@ -75,7 +75,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
+}
 
-  &-input {
-  }
+.ant-form-item:last-of-type {
+  margin-bottom: 0 !important;
 }

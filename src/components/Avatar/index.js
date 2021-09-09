@@ -8,7 +8,7 @@ const Avatar = ({ user }) => {
     return <img className="avatar" src={user.avatar.url} alt={user.fullname} />;
   } else {
     const { color, colorLighten } = generateAvatar(user._id);
-    const firstChar = user.fullname[0].toUpperCase();
+    const firstChar = user?.fullname[0]?.toUpperCase() || "-";
     return (
       <div
         style={{
