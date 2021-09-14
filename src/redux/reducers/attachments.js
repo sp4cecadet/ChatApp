@@ -12,7 +12,7 @@ export default (state = initialState, { type, payload }) => {
     case "ATTACHMENTS:REMOVE_ITEM":
       return {
         ...state,
-        items: state.items.filter((item) => item.uid !== payload.uid),
+        items: state?.items?.filter((item) => item.uid !== payload.uid),
       };
     default:
       return state;
