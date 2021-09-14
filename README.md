@@ -14,5 +14,5 @@ Stack used:
   <li>tinycolor2</li> 
 </ul>
 
-Backend become dusty here: https://github.com/sp4cecadet/React-Petchat-Backend
+Backend become dusty here: https://github.com/sp4cecadet/React-Petchat-Backend <br>
 Heroku app (fully working, backend included): https://react-petchat.herokuapp.com
