@@ -15,4 +15,4 @@ Stack used:
 </ul>
 
 Backend become dusty here: https://github.com/sp4cecadet/React-Petchat-Backend <br>
-Heroku app (fully working, backend included): https://react-petchat.herokuapp.com
+Heroku app (backend included): https://react-petchat.herokuapp.com
